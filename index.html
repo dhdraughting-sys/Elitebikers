@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Bikers | Advanced &amp; Enhanced Rider Training, Meriden &amp; Coventry</title>
+<meta name="description" content="Elite Bikers — DVSA Enhanced Rider Scheme training, advanced riding assessments, refresher courses and Blood Biker training with Darren Hunt, based in Meriden, Coventry.">
+<link rel="canonical" href="https://www.elitebikers.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elite Bikers">
+<meta property="og:title" content="Elite Bikers | Advanced &amp; Enhanced Rider Training">
+<meta property="og:description" content="DVSA Enhanced Rider Scheme training, advanced riding assessments, refresher courses and Blood Biker training in Meriden, Coventry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e12;
+    --panel:#12161c;
+    --navy:#0a3a5c;
+    --navy-deep:#062540;
+    --ink:#f4f1ea;
+    --muted:#b9c0c9;
+    --gold:#c99a4b;
+    --gold-light:#e3bd77;
+    --line:rgba(244,241,234,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.78rem;
+    color:var(--gold-light);
+    font-weight:600;
+    margin:0 0 14px;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    letter-spacing:.02em;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(201,154,75,.28);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-small{padding:10px 20px;font-size:.85rem;}
+
+  /* NAV */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,14,18,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand img{height:34px;width:auto;}
+  .brand span{font-weight:800;letter-spacing:.01em;font-size:1.05rem;}
+  .navlinks{display:none;gap:24px;font-size:.92rem;font-weight:600;}
+  .navlinks a{text-decoration:none;color:var(--muted);transition:color .15s;}
+  .navlinks a:hover{color:var(--gold-light);}
+  .navlinks a.active{color:var(--gold-light);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){
+    .navlinks{display:flex;}
+    .nav-cta{display:inline-block;}
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:64px 0 72px;
+    background:
+      radial-gradient(ellipse at 70% 0%, rgba(10,58,92,.55), transparent 60%),
+      linear-gradient(180deg, #0b0e12, #090b0f 70%);
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;gap:40px;align-items:center;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:900px){
+    .hero-grid{grid-template-columns:1.1fr .9fr;}
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,5vw,3.4rem);
+    line-height:1.08;
+    margin:0 0 20px;
+    color:var(--ink);
+  }
+  .hero h1 em{font-style:normal;color:var(--gold-light);}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:46ch;margin:0 0 30px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:22px;font-size:.88rem;color:var(--muted);}
+  .hero-meta span{display:flex;align-items:center;gap:8px;}
+  .hero-art{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 30px 60px rgba(0,0,0,.45);
+  }
+  .hero-art img{width:100%;height:100%;object-fit:cover;}
+
+  /* SECTION */
+  section{padding:76px 0;}
+  section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  section.tight{padding:56px 0;}
+  .section-head{max-width:680px;margin:0 0 42px;}
+  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.3rem);margin:0 0 14px;}
+  .section-head p{color:var(--muted);margin:0;font-size:1.02rem;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* TEASER GRID (About + Safety + Book on home) */
+  .teaser-grid{display:grid;gap:22px;grid-template-columns:1fr;}
+  @media(min-width:700px){.teaser-grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1000px){.teaser-grid{grid-template-columns:1fr 1fr 1fr;}}
+  .teaser-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px 30px;display:flex;flex-direction:column;
+  }
+  .teaser-card h3{margin:0 0 12px;font-size:1.3rem;}
+  .teaser-card p{color:var(--muted);margin:0 0 20px;flex:1;}
+  .teaser-card.safety{background:linear-gradient(135deg,var(--navy),var(--navy-deep));}
+  .teaser-card.book{background:linear-gradient(160deg,#2b2112,#120d06);}
+
+  /* COURSE TILES */
+  .tiles{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);}
+  @media(min-width:760px){.tiles{grid-template-columns:repeat(4,1fr);}}
+  .tile{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    aspect-ratio:3/4;border:1px solid var(--line);
+    display:flex;align-items:flex-end;padding:18px;
+    color:#fff;font-family:'Playfair Display',serif;font-size:1.15rem;
+    text-align:left;
+  }
+  .tile .bgfx{position:absolute;inset:0;z-index:0;}
+  .tile span{position:relative;z-index:1;line-height:1.25;}
+  .tile.t1 .bgfx{background:linear-gradient(160deg,#0a3a5c,#06182b);}
+  .tile.t2 .bgfx{background:linear-gradient(160deg,#2b2112,#120d06);}
+  .tile.t3 .bgfx{background:linear-gradient(160deg,#1c2b1a,#0a120a);}
+  .tile.t4 .bgfx{background:linear-gradient(160deg,#4a1016,#180607);}
+  .tile::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,.65),rgba(0,0,0,0) 65%);
+    z-index:0;
+  }
+
+  /* CONTACT */
+  .contact-grid{display:grid;gap:40px;grid-template-columns:1fr;}
+  @media(min-width:860px){.contact-grid{grid-template-columns:1fr 1fr;}}
+  .contact-card{background:var(--navy-deep);border:1px solid var(--line);border-radius:var(--radius);padding:34px;}
+  .contact-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .contact-list li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:.98rem;}
+  .contact-list strong{color:var(--ink);display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+
+  /* FOOTER */
+  footer{padding:46px 0 36px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  .footer-links{display:flex;gap:22px;font-size:.88rem;color:var(--muted);flex-wrap:wrap;}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .copyright{font-size:.82rem;color:var(--muted);opacity:.8;}
+
+  .anchor-offset{scroll-margin-top:80px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a class="brand" href="index.html#top">
+      <img src="images/elitebikers-logo-navy.png" alt="Elite Bikers logo">
+    </a>
+    <div class="navlinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+    <a href="theory.html">Theory Test</a>
+    </div>
+    <a class="btn btn-gold btn-small nav-cta" href="#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Meriden &middot; Coventry &middot; CV7 7HT</p>
+        <h1>Advanced &amp; <em>Enhanced</em><br>Rider Training</h1>
+        <p class="lead">Elite Bikers was founded by Darren Hunt to promote advanced and enhanced rider training — helping you ride with more skill, more confidence, and a little less risk, whatever you ride.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#contact">Get in touch</a>
+          <a class="btn btn-outline" href="courses.html">View courses &amp; prices</a>
+        </div>
+        <div class="hero-meta">
+          <span>&#9993; darren@elitebikers.co.uk</span>
+          <span>&#128222; 07727 114483</span>
+          <span>&#128337; Open today 09:00&ndash;17:00</span>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="images/booklet-cover.jpg" alt="Elite Bikers Enhanced Rider Training">
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">A little about us</p>
+        <h2 class="serif">Founded by Darren Hunt</h2>
+        <p>Elite Bikers was founded in 2024 to promote Advanced and Enhanced Rider Training — helping riders learn a little, pass it on, and enjoy the ride more safely. Darren holds a F1RST pass and full membership of IAM RoadSmart, and is a qualified DVSA Enhanced Rider Instructor and Blood Biker Instructor.</p>
+      </div>
+      <div style="text-align:center;">
+        <a class="btn btn-outline btn-small" href="about.html">Read the full story &amp; credentials</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt anchor-offset" id="courses">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Our Courses</p>
+        <h2 class="serif">Advanced riding, enhanced riding, or a confidence refresher</h2>
+        <p>Coming back from a long break and would like a refresher day? We shall be pleased to work with you. We are a friendly team and have the support of our partners in other associations so as to cover various other modules surrounding the DVSA Enhanced Rider Scheme.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile t1"><div class="bgfx"></div><span>Enhanced Rider Training</span></div>
+        <div class="tile t2"><div class="bgfx"></div><span>Advanced Assessments</span></div>
+        <div class="tile t3"><div class="bgfx"></div><span>Refresher Courses</span></div>
+        <div class="tile t4"><div class="bgfx"></div><span>Blood Biker Training</span></div>
+      </div>
+      <div style="text-align:center;margin-top:30px;">
+        <a class="btn btn-gold" href="courses.html">View all courses &amp; prices</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="teaser-grid">
+        <div class="teaser-card safety">
+          <p class="eyebrow" style="margin-bottom:10px;">Free &middot; For every rider</p>
+          <h3 class="serif">Rider Safety Information</h3>
+          <p>The 2 &amp; 4-second rule, Highway Code stopping distances, and a visual guide to the most common causes of bike crashes — free to read, whether you train with us or not.</p>
+          <a class="btn btn-outline btn-small" href="safety.html" style="align-self:flex-start;">Read the safety page</a>
+        </div>
+        <div class="teaser-card">
+          <p class="eyebrow" style="margin-bottom:10px;">Our Partners</p>
+          <h3 class="serif">Trusted training, backed by trusted names</h3>
+          <p>DVSA Enhanced Rider Scheme, Fast-Trak Essential Driver Training, Coventry &amp; Warwickshire Advanced Motorcyclists, and IAM RoadSmart.</p>
+          <a class="btn btn-outline btn-small" href="about.html" style="align-self:flex-start;">See our partners</a>
+        </div>
+        <div class="teaser-card book">
+          <p class="eyebrow" style="margin-bottom:10px;">From &pound;6.99 &middot; No Course Required</p>
+          <h3 class="serif">The Elite Bikers Handbook</h3>
+          <p>Our full training companion, now available as a digital PDF or printed copy — whether you train with us or not.</p>
+          <a class="btn btn-gold btn-small" href="courses.html#book" style="align-self:flex-start;">Order the handbook</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt anchor-offset">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Better yet, see us in person!</p>
+        <h2 class="serif">We prefer to see you</h2>
+        <p style="color:var(--muted);max-width:46ch;">Feel free to arrange a meeting with us, or drop us a call, WhatsApp or email and we'll get back to you.</p>
+        <div class="hero-ctas" style="margin-top:24px;">
+          <a class="btn btn-gold" href="https://wa.me/447727114483" target="_blank" rel="noopener">WhatsApp us</a>
+          <a class="btn btn-outline" href="tel:07727114483">Call now</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3 class="serif" style="margin:0 0 4px;">Elite Bikers</h3>
+        <p style="color:var(--muted);margin:0;">Darren Hunt</p>
+        <ul class="contact-list">
+          <li><div><strong>Address</strong>Kinwalsey Lane, Meriden, Coventry, CV7 7HT</div></li>
+          <li><div><strong>Phone</strong>07727 114483</div></li>
+          <li><div><strong>Email</strong>darren@elitebikers.co.uk</div></li>
+          <li><div><strong>Hours</strong>Open today 09:00&ndash;17:00</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="copyright">&copy; 2026 Elite Bikers &mdash; All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html#top">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+      <a href="theory.html">Theory Test</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

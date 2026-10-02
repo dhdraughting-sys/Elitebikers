@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Rider Safety Information | Elite Bikers</title>
+<meta name="description" content="Free motorcycle safety information from Elite Bikers — the 2-second and 4-second following distance rules, Highway Code stopping distances, and a visual guide to the most common causes of bike crashes.">
+<link rel="canonical" href="https://www.elitebikers.co.uk/safety.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elite Bikers">
+<meta property="og:title" content="Free Rider Safety Information | Elite Bikers">
+<meta property="og:description" content="The 2-second and 4-second rule, stopping distances, and a visual guide to the most common causes of motorcycle crashes — free, for every rider.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e12;
+    --panel:#12161c;
+    --navy:#0a3a5c;
+    --navy-deep:#062540;
+    --ink:#f4f1ea;
+    --muted:#b9c0c9;
+    --gold:#c99a4b;
+    --gold-light:#e3bd77;
+    --line:rgba(244,241,234,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.78rem;
+    color:var(--gold-light);
+    font-weight:600;
+    margin:0 0 14px;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    letter-spacing:.02em;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(201,154,75,.28);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-small{padding:10px 20px;font-size:.85rem;}
+
+  /* NAV */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,14,18,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand img{height:34px;width:auto;}
+  .brand span{font-weight:800;letter-spacing:.01em;font-size:1.05rem;}
+  .navlinks{display:none;gap:24px;font-size:.92rem;font-weight:600;}
+  .navlinks a{text-decoration:none;color:var(--muted);transition:color .15s;}
+  .navlinks a:hover{color:var(--gold-light);}
+  .navlinks a.active{color:var(--gold-light);}
+  .nav-cta{display:none;}
+  @media(min-width:900px){
+    .navlinks{display:flex;}
+    .nav-cta{display:inline-block;}
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:58px 0 60px;
+    background:
+      radial-gradient(ellipse at 70% 0%, rgba(10,58,92,.55), transparent 60%),
+      linear-gradient(180deg, #0b0e12, #090b0f 70%);
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(2rem,5vw,3.1rem);
+    line-height:1.1;
+    margin:0 0 18px;
+    color:var(--ink);
+    max-width:18ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold-light);}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:56ch;margin:0 0 26px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;}
+
+  /* SECTION */
+  section{padding:68px 0;}
+  section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-head{max-width:720px;margin:0 0 38px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.15rem);margin:0 0 14px;}
+  .section-head p{color:var(--muted);margin:0;font-size:1.02rem;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* RULE CARDS (2s / 4s) */
+  .rule-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  @media(min-width:760px){.rule-grid{grid-template-columns:repeat(3,1fr);}}
+  .rule-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;text-align:center;
+  }
+  .rule-card .num{
+    font-family:'Playfair Display',serif;font-weight:700;
+    font-size:3.2rem;line-height:1;color:var(--gold-light);margin-bottom:6px;
+  }
+  .rule-card h3{margin:0 0 10px;font-size:1.1rem;}
+  .rule-card p{color:var(--muted);font-size:.95rem;margin:0;}
+  .rule-card.ice .num{color:#f3a4a4;}
+
+  .howto{
+    background:var(--navy-deep);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 28px;margin-top:22px;
+  }
+  .howto h4{margin:0 0 10px;font-size:1rem;color:var(--gold-light);}
+  .howto p{color:var(--muted);margin:0;font-size:.98rem;}
+
+  /* STOPPING DISTANCE TABLE */
+  table.distances{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem;}
+  table.distances th,table.distances td{padding:12px 14px;text-align:center;border-bottom:1px solid var(--line);}
+  table.distances th{background:var(--navy-deep);color:var(--ink);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.05em;}
+  table.distances td{color:var(--muted);}
+  table.distances td:first-child,table.distances th:first-child{text-align:left;font-weight:700;color:var(--ink);}
+  table.distances tr:nth-child(even) td{background:rgba(244,241,234,0.03);}
+  table.distances td:last-child{color:var(--ink);font-weight:700;}
+  .table-note{color:var(--muted);font-size:.92rem;margin-top:16px;}
+
+  /* SIGN SYSTEM */
+  .sign-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:760px){.sign-grid{grid-template-columns:repeat(4,1fr);}}
+  .sign-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center;}
+  .sign-shape{width:58px;height:58px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;}
+  .sign-shape.tri{width:0;height:0;border-left:29px solid transparent;border-right:29px solid transparent;border-bottom:52px solid #fff;position:relative;margin-bottom:16px;}
+  .sign-shape.tri::after{content:"";position:absolute;left:-23px;top:7px;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-bottom:41px solid #dc2626;}
+  .sign-shape.circle-red{border-radius:50%;background:#dc2626;}
+  .sign-shape.circle-blue{border-radius:50%;background:#1d4ed8;}
+  .sign-shape.rect{width:66px;height:46px;border-radius:5px;background:#1d4ed8;}
+  .sign-card h3{margin:0 0 8px;font-size:1rem;}
+  .sign-card p{color:var(--muted);font-size:.88rem;margin:0;}
+  .markings-list{display:grid;gap:14px;grid-template-columns:1fr;margin-top:8px;}
+  @media(min-width:760px){.markings-list{grid-template-columns:repeat(2,1fr);}}
+  .marking-item{background:var(--navy-deep);border:1px solid var(--line);border-radius:10px;padding:18px 20px;}
+  .marking-item strong{display:block;color:var(--gold-light);font-size:.92rem;margin-bottom:4px;}
+  .marking-item span{color:var(--muted);font-size:.9rem;}
+
+  /* DIAGRAM CARDS */
+  .diagram-grid{display:grid;gap:22px;grid-template-columns:1fr;}
+  @media(min-width:800px){.diagram-grid{grid-template-columns:repeat(2,1fr);}}
+  .diagram-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .diagram-card .imgwrap{background:#fff;padding:10px;}
+  .diagram-card .imgwrap img{border-radius:6px;}
+  .diagram-card .body{padding:20px 22px 24px;}
+  .diagram-card .tag{text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;font-weight:700;color:var(--gold-light);margin:0 0 8px;}
+  .diagram-card h3{margin:0 0 8px;font-size:1.1rem;}
+  .diagram-card p{color:var(--muted);font-size:.93rem;margin:0;}
+
+  /* CRASH PATTERN CARDS */
+  .pattern-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:700px){.pattern-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1000px){.pattern-grid{grid-template-columns:repeat(3,1fr);}}
+  .pattern-card{
+    background:var(--navy-deep);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px 24px;
+  }
+  .pattern-card .n{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;
+    font-weight:800;font-size:.9rem;margin-bottom:12px;
+  }
+  .pattern-card h3{margin:0 0 8px;font-size:1.02rem;}
+  .pattern-card p{color:var(--muted);font-size:.92rem;margin:0;}
+
+  /* RESOURCE CARDS */
+  .resource-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:700px){.resource-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1000px){.resource-grid{grid-template-columns:repeat(4,1fr);}}
+  .resource-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;text-decoration:none;display:block;transition:border-color .15s,transform .15s;
+  }
+  .resource-card:hover{border-color:var(--gold-light);transform:translateY(-2px);}
+  .resource-card h3{margin:0 0 8px;font-size:1.02rem;color:var(--ink);}
+  .resource-card p{color:var(--muted);font-size:.9rem;margin:0 0 10px;}
+  .resource-card span.link{color:var(--gold-light);font-size:.85rem;font-weight:700;}
+
+  /* CTA */
+  .cta-band{
+    background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+    border-radius:var(--radius);border:1px solid var(--line);
+    padding:40px 34px;text-align:center;
+  }
+  .cta-band h2{margin:0 0 14px;}
+  .cta-band p{color:var(--muted);max-width:52ch;margin:0 auto 26px;}
+
+  /* FOOTER */
+  footer{padding:46px 0 36px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  .footer-links{display:flex;gap:22px;font-size:.88rem;color:var(--muted);flex-wrap:wrap;}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .copyright{font-size:.82rem;color:var(--muted);opacity:.8;}
+
+  .anchor-offset{scroll-margin-top:80px;}
+  .disclaimer{color:var(--muted);font-size:.85rem;opacity:.85;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a class="brand" href="index.html">
+      <img src="images/elitebikers-logo-navy.png" alt="Elite Bikers logo">
+    </a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html" class="active">Safety</a>
+      <a href="about.html">About</a>
+    <a href="theory.html">Theory Test</a>
+    </div>
+    <a class="btn btn-gold btn-small nav-cta" href="index.html#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Free &middot; For every rider &middot; Not just our students</p>
+      <h1>Rider Safety <em>Information</em></h1>
+      <p class="lead">Elite Bikers exists to reduce motorcycle crashes — and that doesn't start or end with a paid course. Everything on this page is free to read, free to share, and worth five minutes of any rider's time, however long you've been riding.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#following-distance">The 2 &amp; 4-second rule</a>
+        <a class="btn btn-outline" href="#hazards">Visual guide to hazards</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="following-distance" class="anchor-offset">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Following distance</p>
+        <h2 class="serif">The 2-Second and 4-Second Rule</h2>
+        <p>Highway Code Rule 126 is simple: drive and ride at a speed — and a distance from the vehicle in front — that lets you stop well within the distance you can see to be clear. In practice, that's taught as a count.</p>
+      </div>
+      <div class="rule-grid">
+        <div class="rule-card">
+          <div class="num">2s</div>
+          <h3>Dry, clear conditions</h3>
+          <p>The minimum gap to the vehicle in front on a dry road, in good visibility, at normal road speeds.</p>
+        </div>
+        <div class="rule-card">
+          <div class="num">4s</div>
+          <h3>Wet roads</h3>
+          <p>Double it. A wet road roughly doubles your braking distance, so double your following distance too.</p>
+        </div>
+        <div class="rule-card ice">
+          <div class="num">10&times;</div>
+          <h3>Ice or packed snow</h3>
+          <p>Allow up to ten times your normal dry-weather distance — grip can all but disappear without warning.</p>
+        </div>
+      </div>
+      <div class="howto">
+        <h4>How to count it, on the move</h4>
+        <p>Pick a fixed point ahead — a sign, a bridge, a lamppost. The moment the vehicle in front passes it, start counting: "one-thousand, two-thousand" (or "only a fool breaks the two-second rule"). Saying "one-thousand" at a normal pace takes about a second, so counting this way — rather than just saying "one, two" — is what keeps the count honest. If you reach your fixed point before you finish counting, you're following too closely — ease off and open the gap back up. For the 4-second check in the wet, simply keep counting to four-thousand.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt anchor-offset" id="stopping-distances">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Highway Code, Rule 126</p>
+        <h2 class="serif">Typical Stopping Distances</h2>
+        <p>Stopping distance has two parts: thinking distance (how far you travel before you even react) and braking distance (how far you travel once you do). Both grow with speed — and not in a straight line.</p>
+      </div>
+      <table class="distances">
+        <thead>
+          <tr><th>Speed</th><th>Thinking</th><th>Braking</th><th>Overall</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>20 mph</td><td>6 m</td><td>6 m</td><td>12 m</td></tr>
+          <tr><td>30 mph</td><td>9 m</td><td>14 m</td><td>23 m</td></tr>
+          <tr><td>40 mph</td><td>12 m</td><td>24 m</td><td>36 m</td></tr>
+          <tr><td>50 mph</td><td>15 m</td><td>38 m</td><td>53 m</td></tr>
+          <tr><td>60 mph</td><td>18 m</td><td>55 m</td><td>73 m</td></tr>
+          <tr><td>70 mph</td><td>21 m</td><td>75 m</td><td>96 m</td></tr>
+        </tbody>
+      </table>
+      <p class="table-note">Figures are the Highway Code's typical dry-road distances for an alert rider with good brakes and tyres. A motorcycle's real-world braking distance is usually a little longer than a car's at the same speed — and tyre condition, road surface and your own alertness all affect it further.</p>
+    </div>
+  </section>
+
+  <section class="anchor-offset" id="signs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The Highway Code</p>
+        <h2 class="serif">Signs and Markings: the System Behind Them</h2>
+        <p>There are hundreds of official UK road signs — you don't need to memorise them all. What's worth knowing cold is the system behind them: shape and colour do almost all the talking.</p>
+      </div>
+      <div class="sign-grid">
+        <div class="sign-card">
+          <div class="sign-shape tri"></div>
+          <h3>Triangle, red border</h3>
+          <p>A warning. Something's coming — a bend, a junction, ice, an animal crossing.</p>
+        </div>
+        <div class="sign-card">
+          <div class="sign-shape circle-red"></div>
+          <h3>Circle, red border</h3>
+          <p>An order. Usually a prohibition — no entry, no overtaking, a speed limit — that must be obeyed.</p>
+        </div>
+        <div class="sign-card">
+          <div class="sign-shape circle-blue"></div>
+          <h3>Solid blue circle</h3>
+          <p>A positive instruction. Not a suggestion — "ahead only" means exactly that.</p>
+        </div>
+        <div class="sign-card">
+          <div class="sign-shape rect"></div>
+          <h3>Rectangle</h3>
+          <p>Information. Colour shows road type: blue for motorways, green for primary routes, white/black for local roads.</p>
+        </div>
+      </div>
+      <div class="markings-list">
+        <div class="marking-item">
+          <strong>Hazard warning line</strong>
+          <span>The centre line's dashes grow longer and the gaps shorter on the approach to a hazard — often your first cue, before you can see it yourself.</span>
+        </div>
+        <div class="marking-item">
+          <strong>Double white lines</strong>
+          <span>Solid line on your side: no overtaking. Broken line on your side: overtake when it's clear. Both solid: neither direction crosses, except to enter a side road.</span>
+        </div>
+        <div class="marking-item">
+          <strong>Box junctions</strong>
+          <span>Yellow crosshatching. Don't enter unless your exit is clear — even if your own light is green.</span>
+        </div>
+        <div class="marking-item">
+          <strong>Give-way triangles</strong>
+          <span>Painted before a junction, matching the inverted-triangle sign: slow down and be ready to stop for traffic on the road you're joining.</span>
+        </div>
+      </div>
+      <p class="table-note">This is a working selection, not the full set. The complete, official list of UK road signs and markings is published free by DVSA as part of the Highway Code — see <a href="https://www.gov.uk/guidance/the-highway-code" target="_blank" rel="noopener" style="color:var(--gold-light);">gov.uk/guidance/the-highway-code</a>.</p>
+    </div>
+  </section>
+
+  <section id="hazards" class="anchor-offset">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">A visual guide</p>
+        <h2 class="serif">Spot the Hazard Before It Happens</h2>
+        <p>Four scenarios worth picturing before you meet them on the road. Original diagrams, not technical drawings — the point is to fix the shape of the hazard in your mind.</p>
+      </div>
+      <div class="diagram-grid">
+
+        <div class="diagram-card">
+          <div class="imgwrap"><img src="images/safety-junction-hazard.png" alt="Diagram of a vehicle waiting to emerge at a junction while a motorcycle approaches, illustrating the SMIDSY junction hazard"></div>
+          <div class="body">
+            <p class="tag">Junctions</p>
+            <h3>Being missed at a junction (SMIDSY)</h3>
+            <p>A driver waiting to emerge is scanning for a gap in the traffic — not looking for a motorcycle. Assume you haven't been seen, cover your brakes, and watch the other vehicle's wheels rather than the driver's face.</p>
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <div class="imgwrap"><img src="images/safety-overtaking-queue.png" alt="Diagram of a motorcycle overtaking a queue of stationary traffic, with a hidden vehicle about to turn across its path"></div>
+          <div class="body">
+            <p class="tag">Country roads</p>
+            <h3>Overtaking a queue of traffic</h3>
+            <p>A hidden driveway or turning partway along a queue is one of the most common places for a vehicle to cross your path without warning. Ask why the queue has formed before you commit.</p>
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <div class="imgwrap"><img src="images/safety-limit-point.png" alt="Diagram of a road bend showing the limit point, used to judge whether to speed up or slow down on the approach"></div>
+          <div class="body">
+            <p class="tag">Dangers on bends</p>
+            <h3>Reading a bend: the limit point</h3>
+            <p>The limit point is where the two verges of the road seem to meet. If it stays the same distance away, your speed is right. If it draws closer, slow down — there may be something waiting just out of sight.</p>
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <div class="imgwrap"><img src="images/safety-bend-positioning.png" alt="Side-by-side diagram comparing motorcycle road position on a right-hand bend versus a left-hand bend"></div>
+          <div class="body">
+            <p class="tag">Dangers on bends</p>
+            <h3>Positioning for left- and right-hand bends</h3>
+            <p>Position yourself for the earliest possible view into the bend — nearside for a right-hander, toward (never across) the centre line for a left-hander.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="alt anchor-offset" id="crash-patterns">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Why riders crash</p>
+        <h2 class="serif">Six Patterns Worth Knowing in Advance</h2>
+        <p>Research and front-line experience shared freely by roadside trauma charities and police-led rider schemes shows that motorcycle crashes cluster around a small, repeating handful of situations.</p>
+      </div>
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <div class="n">1</div>
+          <h3>Being missed at a junction</h3>
+          <p>Still the single most common cause of riders being knocked off. Cover your brakes on the approach to any junction with a waiting vehicle.</p>
+        </div>
+        <div class="pattern-card">
+          <div class="n">2</div>
+          <h3>Overtaking a queue</h3>
+          <p>Someone in the queue may turn, U-turn, or pull out without warning. Build a bubble of space and overtake at a speed you can stop within.</p>
+        </div>
+        <div class="pattern-card">
+          <div class="n">3</div>
+          <h3>Overtaking at a junction</h3>
+          <p>Even blue-light riders avoid it. A vehicle slowing for no obvious reason may be about to turn across your path. Don't overtake at a junction — ever.</p>
+        </div>
+        <div class="pattern-card">
+          <div class="n">4</div>
+          <h3>Getting it wrong on a bend</h3>
+          <p>Almost always too much speed carried in for what's actually around it. Use the limit point, and slow down wherever there's any doubt.</p>
+        </div>
+        <div class="pattern-card">
+          <div class="n">5</div>
+          <h3>Losing control through overconfidence</h3>
+          <p>Crashes of this kind spike in spring, and cluster among experienced riders on bigger bikes. Be honest about how rusty, tired or distracted you are today.</p>
+        </div>
+        <div class="pattern-card">
+          <div class="n">6</div>
+          <h3>Riding in a group</h3>
+          <p>Being part of a group measurably increases crash risk — usually riders showing off, or someone at the back pushing to keep up. Ride your own ride.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="anchor-offset" id="resources">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Keep Learning</p>
+        <h2 class="serif">Take It Further</h2>
+        <p>Reading about safe riding is a good start — nothing replaces time in the saddle with a qualified instructor watching your riding and feeding it back to you.</p>
+      </div>
+      <div style="text-align:center;">
+        <div class="hero-ctas" style="justify-content:center;">
+          <a class="btn btn-gold" href="courses.html#book">Get the full handbook</a>
+          <a class="btn btn-outline" href="courses.html">View courses &amp; prices</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <p class="eyebrow">Beyond this page</p>
+        <h2 class="serif">Want this built into real, hands-on skill?</h2>
+        <p>Reading about following distances and limit points is a start. An observed ride with proper feedback is how it actually sticks.</p>
+        <a class="btn btn-gold" href="courses.html">View courses &amp; prices</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="disclaimer">This page is general guidance for educational purposes and does not replace hands-on instruction from a qualified rider trainer. Every rider is solely and personally responsible for their own ride, actions, and safety on the road.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="copyright">&copy; 2026 Elite Bikers &mdash; All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html#top">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+      <a href="theory.html">Theory Test</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

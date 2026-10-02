@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses &amp; Pricing | Elite Bikers</title>
+<meta name="description" content="DVSA Enhanced Rider Scheme, Blood Biker training, advanced riding assessments, refresher days and more — courses and prices from Elite Bikers, Meriden, Coventry.">
+<link rel="canonical" href="https://www.elitebikers.co.uk/courses.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elite Bikers">
+<meta property="og:title" content="Courses &amp; Pricing | Elite Bikers">
+<meta property="og:description" content="DVSA Enhanced Rider Scheme, Blood Biker training, advanced riding assessments and refresher days — courses and prices from Elite Bikers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e12;
+    --panel:#12161c;
+    --navy:#0a3a5c;
+    --navy-deep:#062540;
+    --ink:#f4f1ea;
+    --muted:#b9c0c9;
+    --gold:#c99a4b;
+    --gold-light:#e3bd77;
+    --line:rgba(244,241,234,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.78rem;
+    color:var(--gold-light);
+    font-weight:600;
+    margin:0 0 14px;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    letter-spacing:.02em;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(201,154,75,.28);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-small{padding:10px 20px;font-size:.85rem;}
+
+  /* NAV */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,14,18,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand img{height:34px;width:auto;}
+  .navlinks{display:none;gap:24px;font-size:.92rem;font-weight:600;}
+  .navlinks a{text-decoration:none;color:var(--muted);transition:color .15s;}
+  .navlinks a:hover{color:var(--gold-light);}
+  .navlinks a.active{color:var(--gold-light);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){
+    .navlinks{display:flex;}
+    .nav-cta{display:inline-block;}
+  }
+
+  /* PAGE HEADER */
+  .pagehead{
+    padding:56px 0 48px;
+    background:
+      radial-gradient(ellipse at 70% 0%, rgba(10,58,92,.5), transparent 60%),
+      linear-gradient(180deg, #0b0e12, #090b0f 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .pagehead h1{font-size:clamp(2rem,4.5vw,2.9rem);margin:0 0 14px;}
+  .pagehead p{color:var(--muted);max-width:60ch;font-size:1.05rem;margin:0;}
+
+  /* SECTION */
+  section{padding:70px 0;}
+  section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-head{max-width:680px;margin:0 0 42px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 14px;}
+  .section-head p{color:var(--muted);margin:0;font-size:1.02rem;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* COURSE TILES */
+  .tiles{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);}
+  @media(min-width:760px){.tiles{grid-template-columns:repeat(4,1fr);}}
+  .tile{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    aspect-ratio:3/4;border:1px solid var(--line);
+    display:flex;align-items:flex-end;padding:18px;
+    color:#fff;font-family:'Playfair Display',serif;font-size:1.15rem;
+    text-align:left;
+  }
+  .tile .bgfx{position:absolute;inset:0;z-index:0;}
+  .tile span{position:relative;z-index:1;line-height:1.25;}
+  .tile.t1 .bgfx{background:linear-gradient(160deg,#0a3a5c,#06182b);}
+  .tile.t2 .bgfx{background:linear-gradient(160deg,#2b2112,#120d06);}
+  .tile.t3 .bgfx{background:linear-gradient(160deg,#1c2b1a,#0a120a);}
+  .tile.t4 .bgfx{background:linear-gradient(160deg,#4a1016,#180607);}
+  .tile::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,.65),rgba(0,0,0,0) 65%);
+    z-index:0;
+  }
+
+  /* PRICING */
+  .course-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  @media(min-width:700px){.course-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1000px){.course-grid{grid-template-columns:repeat(3,1fr);}}
+  .course-card{
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px;display:flex;flex-direction:column;gap:10px;
+  }
+  .course-card h3{margin:0;font-size:1.18rem;font-family:'Playfair Display',serif;}
+  .course-meta{display:flex;gap:14px;font-size:.85rem;color:var(--gold-light);font-weight:700;letter-spacing:.02em;text-transform:uppercase;}
+  .course-card p{color:var(--muted);margin:4px 0 14px;font-size:.96rem;flex:1;}
+  .course-price{font-size:1.5rem;font-weight:800;color:var(--ink);}
+  .course-price small{font-size:.9rem;color:var(--muted);font-weight:500;}
+
+  /* BOOK */
+  .cred-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .cred-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;color:var(--ink);font-weight:500;font-size:.92rem;
+  }
+  .cred-list li::before{content:"\2713";flex-shrink:0;color:var(--gold-light);font-weight:800;}
+  .book-grid{display:grid;gap:36px;grid-template-columns:1fr;align-items:start;}
+  @media(min-width:860px){.book-grid{grid-template-columns:.75fr 1.25fr;}}
+  .book-cover{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 48px rgba(0,0,0,.4);}
+  .book-options{display:grid;gap:16px;grid-template-columns:1fr;margin:24px 0 16px;}
+  @media(min-width:560px){.book-options{grid-template-columns:1fr 1fr;}}
+  .book-option{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;}
+  .book-option h3{margin:0 0 8px;font-size:1.05rem;font-family:'Playfair Display',serif;}
+  .book-option p{color:var(--muted);font-size:.9rem;margin:6px 0 16px;}
+  .book-note{color:var(--muted);font-size:.88rem;margin:0;}
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+    border-radius:var(--radius);border:1px solid var(--line);
+    padding:40px 34px;text-align:center;
+  }
+  .cta-band h2{margin:0 0 14px;}
+  .cta-band p{color:var(--muted);max-width:52ch;margin:0 auto 26px;}
+
+  /* FOOTER */
+  footer{padding:46px 0 36px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  .footer-links{display:flex;gap:22px;font-size:.88rem;color:var(--muted);flex-wrap:wrap;}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .copyright{font-size:.82rem;color:var(--muted);opacity:.8;}
+
+  .anchor-offset{scroll-margin-top:80px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a class="brand" href="index.html#top">
+      <img src="images/elitebikers-logo-navy.png" alt="Elite Bikers logo">
+    </a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html" class="active">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+    <a href="theory.html">Theory Test</a>
+    </div>
+    <a class="btn btn-gold btn-small nav-cta" href="index.html#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="pagehead">
+    <div class="wrap">
+      <p class="eyebrow">Our Courses</p>
+      <h1 class="serif">Courses &amp; Pricing</h1>
+      <p>Coming back from a long break and would like a refresher day? We shall be pleased to work with you. We are a friendly team and have the support of our partners in other associations so as to cover various other modules surrounding the DVSA Enhanced Rider Scheme. If you're new and want your CBT, A2, A1 or DAS, we can arrange this with our partners at Fast-Trak, the legendary David Palmer.</p>
+    </div>
+  </section>
+
+  <section id="courses" class="anchor-offset">
+    <div class="wrap">
+      <div class="tiles">
+        <div class="tile t1"><div class="bgfx"></div><span>Enhanced Rider Training</span></div>
+        <div class="tile t2"><div class="bgfx"></div><span>Advanced Assessments</span></div>
+        <div class="tile t3"><div class="bgfx"></div><span>Refresher Courses</span></div>
+        <div class="tile t4"><div class="bgfx"></div><span>Blood Biker Training</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt anchor-offset" id="pricing">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Online Appointments</p>
+        <h2 class="serif">Courses &amp; prices</h2>
+        <p>Get in touch by phone, WhatsApp or email to check availability and book your date.</p>
+      </div>
+      <div class="course-grid">
+
+        <div class="course-card">
+          <h3>Enhanced Rider Scheme</h3>
+          <div class="course-meta"><span>4 hrs</span></div>
+          <p>A minimum of four hours to assess the DVSA competencies as per the Enhanced Rider Scheme, with full feedback throughout.</p>
+          <div class="course-price">&pound;185</div>
+          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Enhanced Rider Scheme">Enquire</a>
+        </div>
+
+        <div class="course-card">
+          <h3>Blood Biker Training <small style="font-size:.7em;color:var(--muted);">inc. ERS</small></h3>
+          <div class="course-meta"><span>5 hrs</span></div>
+          <p>Apart from going through the ERS competencies, this course allows you to prepare for the additional standards expected of Blood Bike riders.</p>
+          <div class="course-price">&pound;225</div>
+          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Blood Biker Training">Enquire</a>
+        </div>
+
+        <div class="course-card">
+          <h3>Assessments to Consider Advanced Riding</h3>
+          <div class="course-meta"><span>2 hrs</span></div>
+          <p>Full feedback given and a report issued for your records. We spend time briefing you on what advanced riding involves before we start.</p>
+          <div class="course-price">&pound;75</div>
+          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Advanced Riding Assessment">Enquire</a>
+        </div>
+
+        <div class="course-card">
+          <h3>Refresher Day <small style="font-size:.7em;color:var(--muted);">return to riding / new rider</small></h3>
+          <div class="course-meta"><span>3 hrs</span></div>
+          <p>A refresher day to bring back the confidence you know you have. Ideal if you're returning to riding or still new to it.</p>
+          <div class="course-price">&pound;150</div>
+          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Refresher Day">Enquire</a>
+        </div>
+
+        <div class="course-card">
+          <h3>Slow Riding Refresher Morning</h3>
+          <div class="course-meta"><span>3 hrs</span></div>
+          <p>A morning spent developing slow riding skills — ideal for those intending to take on filtering, car parks, or tight manoeuvring with confidence.</p>
+          <div class="course-price">&pound;65</div>
+          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Slow Riding Refresher Morning">Enquire</a>
+        </div>
+
+        <div class="course-card">
+          <h3>Tours Around Wales</h3>
+          <div class="course-meta"><span>8 hrs</span></div>
+          <p>A good day's riding incorporating the ERS, with lunch included. Routes to be confirmed.</p>
+          <div class="course-price">&pound;325</div>
+          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Tours Around Wales">Enquire</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="alt anchor-offset" id="book">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Available Now &middot; No Course Required</p>
+        <h2 class="serif">The Elite Bikers Handbook</h2>
+        <p>Our full training companion — the seven core modules of the DVSA Enhanced Rider Scheme, plus a crash-avoidance chapter, Highway Code stopping distances, signs &amp; markings, and a visual hazards appendix. You don't need to be booked on a course to own a copy.</p>
+      </div>
+      <div class="book-grid">
+        <div class="book-cover"><img src="images/booklet-cover.jpg" alt="The Elite Bikers Handbook cover"></div>
+        <div>
+          <ul class="cred-list">
+            <li>40+ pages covering all seven ERS modules</li>
+            <li>Why riders crash, overtaking, bends and junctions — and how to avoid the common mistakes</li>
+            <li>Highway Code stopping distances, signs &amp; markings, and the 2 &amp; 4-second rule explained</li>
+            <li>Visual appendix: junction hazards, overtaking queues, limit points and bend positioning</li>
+          </ul>
+          <div class="book-options">
+            <div class="book-option">
+              <h3>Digital PDF</h3>
+              <div class="course-price">&pound;6.99</div>
+              <p>Instant download — read on your phone, tablet or printed out at home.</p>
+              <a class="btn btn-gold btn-small" href="mailto:darren@elitebikers.co.uk?subject=Order: Elite Bikers Handbook (Digital PDF)">Order the PDF</a>
+            </div>
+            <div class="book-option">
+              <h3>Printed copy</h3>
+              <div class="course-price">&pound;19.99 <small>inc. UK postage</small></div>
+              <p>Pocket-sized (A6), printed and posted straight to your door.</p>
+              <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Order: Elite Bikers Handbook (Printed copy)">Order a printed copy</a>
+            </div>
+          </div>
+          <p class="book-note">Online card payment is coming soon — for now, drop us an email with your order and we'll take it from there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <p class="eyebrow">Ready to book?</p>
+        <h2 class="serif">Get in touch to check availability</h2>
+        <p>A quick call, WhatsApp message or email is all it takes to find a date that works.</p>
+        <a class="btn btn-gold" href="index.html#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="copyright">&copy; 2026 Elite Bikers &mdash; All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html#top">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+      <a href="theory.html">Theory Test</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

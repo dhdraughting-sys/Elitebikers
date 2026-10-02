@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theory Practice | Elite Bikers</title>
+<meta name="description" content="Free motorcycle theory practice questions from Elite Bikers — short, medium and long quizzes covering the same topics as the real test, plus a hazard-spotting exercise. Original practice content, not official DVSA questions.">
+<link rel="canonical" href="https://www.elitebikers.co.uk/theory.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elite Bikers">
+<meta property="og:title" content="Theory Practice | Elite Bikers">
+<meta property="og:description" content="Free motorcycle theory practice questions — short, medium and long quizzes, plus a hazard-spotting exercise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e12;
+    --panel:#12161c;
+    --navy:#0a3a5c;
+    --navy-deep:#062540;
+    --ink:#f4f1ea;
+    --muted:#b9c0c9;
+    --gold:#c99a4b;
+    --gold-light:#e3bd77;
+    --line:rgba(244,241,234,0.12);
+    --radius:14px;
+    --good:#4ade80;
+    --bad:#f3a4a4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+  .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--gold-light);font-weight:600;margin:0 0 14px;}
+  .btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(201,154,75,.28);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-small{padding:10px 20px;font-size:.85rem;}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+  header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,18,0.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand img{height:34px;width:auto;}
+  .navlinks{display:none;gap:22px;font-size:.92rem;font-weight:600;}
+  .navlinks a{text-decoration:none;color:var(--muted);transition:color .15s;}
+  .navlinks a:hover{color:var(--gold-light);}
+  .navlinks a.active{color:var(--gold-light);}
+  .nav-cta{display:none;}
+  @media(min-width:900px){.navlinks{display:flex;} .nav-cta{display:inline-block;}}
+
+  .pagehead{padding:56px 0 48px;background:radial-gradient(ellipse at 70% 0%, rgba(10,58,92,.5), transparent 60%), linear-gradient(180deg, #0b0e12, #090b0f 70%);border-bottom:1px solid var(--line);}
+  .pagehead h1{font-size:clamp(2rem,4.5vw,2.9rem);margin:0 0 14px;}
+  .pagehead p{color:var(--muted);max-width:66ch;font-size:1.05rem;margin:0 0 10px;}
+  .pagehead .disclaimer{color:var(--muted);font-size:.85rem;opacity:.85;max-width:66ch;}
+
+  section{padding:64px 0;}
+  section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-head{max-width:700px;margin:0 0 36px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 14px;}
+  .section-head p{color:var(--muted);margin:0;font-size:1.02rem;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* LENGTH PICKER */
+  .length-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  @media(min-width:760px){.length-grid{grid-template-columns:repeat(3,1fr);}}
+  .length-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  .length-card .num{font-family:'Playfair Display',serif;font-weight:700;font-size:3rem;line-height:1;color:var(--gold-light);margin-bottom:8px;}
+  .length-card h3{margin:0 0 10px;font-size:1.15rem;}
+  .length-card p{color:var(--muted);font-size:.92rem;margin:0 0 20px;flex:1;}
+
+  /* QUIZ RUNNER */
+  #quizRunner{display:none;}
+  .quiz-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;max-width:720px;margin:0 auto;}
+  .quiz-progress-track{height:6px;border-radius:999px;background:rgba(244,241,234,0.1);overflow:hidden;margin-bottom:22px;}
+  .quiz-progress-bar{height:100%;background:linear-gradient(90deg,var(--gold-light),var(--gold));border-radius:999px;transition:width .25s ease;}
+  .quiz-meta{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:18px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;}
+  .quiz-question{font-size:1.15rem;margin:0 0 22px;font-weight:600;}
+  .quiz-options{display:flex;flex-direction:column;gap:12px;margin-bottom:8px;}
+  .quiz-option{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--ink);font-size:.98rem;cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold-light);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{border-color:var(--good);background:rgba(74,222,128,0.12);}
+  .quiz-option.incorrect{border-color:var(--bad);background:rgba(243,164,164,0.12);}
+  .quiz-explain{display:none;background:var(--navy-deep);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-top:18px;color:var(--muted);font-size:.92rem;}
+  .quiz-explain.show{display:block;}
+  .quiz-footer{display:flex;justify-content:flex-end;margin-top:22px;}
+
+  /* RESULTS */
+  #quizResults{display:none;}
+  .results-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:36px 30px;max-width:720px;margin:0 auto;text-align:center;}
+  .results-score{font-family:'Playfair Display',serif;font-weight:700;font-size:3.4rem;color:var(--gold-light);margin:6px 0;}
+  .results-pct{color:var(--muted);margin-bottom:26px;}
+  .results-breakdown{text-align:left;display:grid;gap:10px;margin:0 0 28px;}
+  .breakdown-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:.9rem;}
+  .breakdown-row .bar-track{flex:1;height:6px;background:rgba(244,241,234,0.1);border-radius:999px;margin:0 12px;overflow:hidden;}
+  .breakdown-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--gold-light),var(--gold));}
+  .results-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+
+  /* HAZARD CARDS */
+  .hazard-grid{display:grid;gap:22px;grid-template-columns:1fr;}
+  @media(min-width:800px){.hazard-grid{grid-template-columns:repeat(2,1fr);}}
+  .hazard-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .hazard-card .imgwrap{background:#fff;padding:10px;}
+  .hazard-card .imgwrap img{border-radius:6px;}
+  .hazard-card .body{padding:20px 22px 24px;}
+  .hazard-card h3{margin:0 0 10px;font-size:1.05rem;}
+  .hazard-reveal-btn{background:transparent;border:1px solid var(--line);color:var(--gold-light);border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:inherit;}
+  .hazard-reveal-btn:hover{border-color:var(--gold-light);}
+  .hazard-answer{display:none;margin-top:14px;color:var(--muted);font-size:.92rem;background:var(--navy-deep);border:1px solid var(--line);border-radius:8px;padding:14px 16px;}
+  .hazard-answer.show{display:block;}
+
+  .cta-band{background:linear-gradient(135deg,var(--navy),var(--navy-deep));border-radius:var(--radius);border:1px solid var(--line);padding:40px 34px;text-align:center;}
+  .cta-band h2{margin:0 0 14px;}
+  .cta-band p{color:var(--muted);max-width:52ch;margin:0 auto 26px;}
+
+  footer{padding:46px 0 36px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  .footer-links{display:flex;gap:22px;font-size:.88rem;color:var(--muted);flex-wrap:wrap;}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .copyright{font-size:.82rem;color:var(--muted);opacity:.8;}
+  .anchor-offset{scroll-margin-top:80px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a class="brand" href="index.html">
+      <img src="images/elitebikers-logo-navy.png" alt="Elite Bikers logo">
+    </a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+      <a href="theory.html" class="active">Theory Test</a>
+    </div>
+    <a class="btn btn-gold btn-small nav-cta" href="index.html#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <p class="eyebrow">Free &middot; Not Official DVSA Content</p>
+      <h1 class="serif">Theory Practice</h1>
+      <p>Short, medium and long practice quizzes covering the same topic areas as the real motorcycle theory test — Alertness, Attitude, Safety Margins, Hazard Awareness, Vulnerable Road Users, Vehicle Handling, and more.</p>
+      <p class="disclaimer">These are original practice questions written by Elite Bikers from the Highway Code and our own training material — not the official DVSA question bank, which is confidential and licensed separately. Use this for revision alongside, not instead of, official DVSA-approved resources before booking your real test.</p>
+    </div>
+  </section>
+
+  <section class="anchor-offset" id="quiz">
+    <div class="wrap">
+
+      <div id="lengthPicker">
+        <div class="section-head center">
+          <p class="eyebrow">Pick a Length</p>
+          <h2 class="serif">Start a Practice Quiz</h2>
+          <p>Questions are drawn at random from our question bank each time, so no two attempts are quite the same.</p>
+        </div>
+        <div class="length-grid">
+          <div class="length-card">
+            <div class="num">10</div>
+            <h3>Short</h3>
+            <p>A quick refresher — good for a spare five minutes.</p>
+            <button class="btn btn-outline" onclick="startQuiz(10)">Start Short Quiz</button>
+          </div>
+          <div class="length-card">
+            <div class="num">25</div>
+            <h3>Medium</h3>
+            <p>A broader spread across every topic area.</p>
+            <button class="btn btn-outline" onclick="startQuiz(25)">Start Medium Quiz</button>
+          </div>
+          <div class="length-card">
+            <div class="num">50</div>
+            <h3>Long</h3>
+            <p>The same length as the real Category A theory test.</p>
+            <button class="btn btn-gold" onclick="startQuiz(50)">Start Long Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="quizRunner">
+        <div class="quiz-card">
+          <div class="quiz-progress-track"><div class="quiz-progress-bar" id="progressBar" style="width:0%;"></div></div>
+          <div class="quiz-meta"><span id="quizPosition">Question 1 of 10</span><span id="quizCategory">Alertness</span></div>
+          <p class="quiz-question" id="quizQuestion"></p>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-explain" id="quizExplain"></div>
+          <div class="quiz-footer"><button class="btn btn-gold" id="nextBtn" onclick="nextQuestion()" disabled>Next</button></div>
+        </div>
+      </div>
+
+      <div id="quizResults">
+        <div class="results-card">
+          <p class="eyebrow">Your Result</p>
+          <div class="results-score" id="resultsScore">0/10</div>
+          <p class="results-pct" id="resultsPct"></p>
+          <div class="results-breakdown" id="resultsBreakdown"></div>
+          <div class="results-ctas">
+            <button class="btn btn-outline" onclick="resetToPicker()">Try Again</button>
+            <a class="btn btn-gold" href="courses.html#book">Get the Full Handbook</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="alt anchor-offset" id="hazards">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Bonus &middot; Original Diagrams</p>
+        <h2 class="serif">Spot the Hazard</h2>
+        <p>The real test has a separate, video-based hazard perception section, which is also DVSA's own proprietary material. This is a simplified version using our own diagrams, just to get you thinking the right way.</p>
+      </div>
+      <div class="hazard-grid">
+        <div class="hazard-card">
+          <div class="imgwrap"><img src="images/safety-junction-hazard.png" alt="Junction hazard diagram"></div>
+          <div class="body">
+            <h3>What's the developing hazard here, and what should you do?</h3>
+            <button class="hazard-reveal-btn" onclick="toggleHazard(this)">Reveal answer</button>
+            <div class="hazard-answer">A driver waiting to emerge is scanning for a gap in the traffic, not looking for a motorcycle. Assume you haven't been seen, cover your brakes on the approach, and watch the vehicle's wheels rather than the driver's face.</div>
+          </div>
+        </div>
+        <div class="hazard-card">
+          <div class="imgwrap"><img src="images/safety-overtaking-queue.png" alt="Overtaking a queue of traffic diagram"></div>
+          <div class="body">
+            <h3>What's the developing hazard here, and what should you do?</h3>
+            <button class="hazard-reveal-btn" onclick="toggleHazard(this)">Reveal answer</button>
+            <div class="hazard-answer">A hidden driveway or turning partway along the queue is one of the most common places for a vehicle to cross your path without warning. Ask why the queue has formed before you commit to passing it.</div>
+          </div>
+        </div>
+        <div class="hazard-card">
+          <div class="imgwrap"><img src="images/safety-limit-point.png" alt="Limit point diagram"></div>
+          <div class="body">
+            <h3>What's the developing hazard here, and what should you do?</h3>
+            <button class="hazard-reveal-btn" onclick="toggleHazard(this)">Reveal answer</button>
+            <div class="hazard-answer">If the limit point stays the same distance away, your speed is right. If it draws closer, slow down — there may be something waiting just out of sight around the bend.</div>
+          </div>
+        </div>
+        <div class="hazard-card">
+          <div class="imgwrap"><img src="images/safety-bend-positioning.png" alt="Bend positioning diagram"></div>
+          <div class="body">
+            <h3>What's the developing hazard here, and what should you do?</h3>
+            <button class="hazard-reveal-btn" onclick="toggleHazard(this)">Reveal answer</button>
+            <div class="hazard-answer">Poor positioning on a bend restricts your view and your options. Position toward the nearside on a right-hander, or toward (never crossing) the centre line on a left-hander, for the earliest possible view round.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <p class="eyebrow">Ready for the real thing?</p>
+        <h2 class="serif">Nothing replaces time with a qualified instructor</h2>
+        <p>These quizzes are a revision aid, not a substitute for proper training. Book an Enhanced Rider Scheme session, an assessment, or a refresher day.</p>
+        <a class="btn btn-gold" href="courses.html">View courses &amp; prices</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="copyright">&copy; 2026 Elite Bikers &mdash; All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html#top">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+      <a href="theory.html">Theory Test</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const QUESTION_BANK = [
+  {cat:"Alertness", q:"Before moving off, what's the final check you should make in addition to mirrors and signalling?", options:["A shoulder check (lifesaver glance) into your blind spot","Checking your fuel gauge","Checking your phone for messages","Revving the engine to warn others"], correct:0, explain:"Mirrors don't cover the blind spot directly beside and slightly behind you, so a final shoulder check (a \"lifesaver\" glance) is essential before moving off or changing lane."},
+  {cat:"Alertness", q:"You're riding on a long, straight, empty road. Why should you still keep actively scanning rather than relaxing your attention?", options:["Because fatigue and loss of concentration build up fastest on roads that feel uneventful","Because the police specifically patrol long straight roads","Because your bike's engine runs hotter at a constant speed","Because insurance requires it"], correct:0, explain:"Monotonous riding is a well-known cause of reduced alertness — attention naturally drifts when nothing seems to be happening, which is exactly when a hazard catches you unprepared."},
+  {cat:"Alertness", q:"What does the \"what if?\" habit described in defensive riding actually mean in practice?", options:["Constantly asking yourself what a nearby road user might do next, before it happens","Imagining worst-case scenarios to feel more cautious overall","Asking a passenger to watch the road for you","Reviewing your journey afterwards to see what went wrong"], correct:0, explain:"Good defensive riders continuously ask \"what if that car pulls out, what if that pedestrian steps off the kerb\" — turning anticipation into an automatic background habit, not a distraction."},
+  {cat:"Alertness", q:"Which of these is most likely to reduce your situational awareness, even if you feel fine?", options:["Stress, grief or distraction from events earlier in the day","Wearing a well-fitted helmet","Riding a bike you're familiar with","Riding in daylight"], correct:0, explain:"Emotional state affects concentration just as much as tiredness does — an honest check-in with yourself before setting off is as important as checking the bike."},
+  {cat:"Alertness", q:"Why is it particularly important to be alert for emerging hazards when approaching a junction, even if you have right of way?", options:["Because another road user may simply not have seen you","Because junctions are where speed cameras are most common","Because right of way is rarely enforced in the UK","Because junctions always have the national speed limit"], correct:0, explain:"Being missed at a junction — \"SMIDSY\" (sorry mate, I didn't see you) — is one of the single most common causes of motorcycle collisions, regardless of who technically has priority."},
+
+  {cat:"Attitude", q:"A driver cuts you up at a roundabout. What's the correct response?", options:["Let it go — responding with anger or retaliation only increases the risk to you","Flash your lights repeatedly to make your displeasure clear","Overtake them immediately to make a point","Follow closely behind until they apologise"], correct:0, explain:"You'll never win an argument with a vehicle that outweighs you many times over — de-escalating rather than engaging is both safer and, in the end, more effective."},
+  {cat:"Attitude", q:"What's the main danger of riding with excessive confidence after several years of experience?", options:["Pushing your machine or the moment beyond where your sharpness actually is that day","Experienced riders are statistically never involved in serious crashes","Confidence has no bearing on crash risk","Experienced riders are exempt from needing an MOT"], correct:0, explain:"Riders in their forties, fifties and sixties, often on bigger bikes with years of experience, are a notably over-represented group in serious crashes — overconfidence, not inexperience, is often the common thread."},
+  {cat:"Attitude", q:"Why might a rider \"showing off\" within a group be a genuine safety issue, not just bad manners?", options:["It measurably increases the chance of a collision, both for the rider and the group","It only affects fuel efficiency","It's only a problem if a passenger is being carried","It has no real safety relevance, only etiquette"], correct:0, explain:"Riding to impress other riders, or trying to keep up beyond your own ability, is one of the two most common root causes of group-riding collisions."},
+  {cat:"Attitude", q:"What should your attitude be toward other road users who make a mistake near you?", options:["Accept that everyone, including you, will have an off day, and plan for it rather than being surprised by it","Report every incident to the police regardless of outcome","Assume it was deliberate until proven otherwise","Avoid that type of road in future"], correct:0, explain:"A tolerant, anticipatory attitude — allowing for others' mistakes as well as your own — is one of the core themes of advanced riding, and underpins almost every other technique."},
+  {cat:"Attitude", q:"Why is patience considered a core part of safe rider attitude, rather than just a personality trait?", options:["Because impatience directly leads to poor decisions like overtaking in the wrong place or at the wrong time","Because patience improves fuel economy","Because the Highway Code specifically scores patience in the driving test","Because patient riders are statistically exempt from speed limits"], correct:0, explain:"Many of the most dangerous riding decisions — a rushed overtake, pushing through a gap that isn't really there — come from impatience rather than a lack of skill."},
+
+  {cat:"Safety Margins", q:"What is the typical overall stopping distance at 50mph on a dry road, according to the Highway Code?", options:["53 metres","23 metres","96 metres","36 metres"], correct:0, explain:"At 50mph, the Highway Code's typical figures are 15m thinking distance plus 38m braking distance — 53m overall (Rule 126)."},
+  {cat:"Safety Margins", q:"How should you adjust your following distance on a wet road compared with a dry one?", options:["At least double it","Halve it, since wet roads reduce your speed anyway","No adjustment is needed if you have ABS","Only adjust it on motorways"], correct:0, explain:"A motorcycle's braking distance increases significantly on a wet surface — doubling your dry-road gap is the standard, minimum adjustment."},
+  {cat:"Safety Margins", q:"On ice or hard-packed snow, how much longer can your stopping distance be compared with a dry road?", options:["Up to ten times longer","About 25% longer","Exactly double","No different, provided you ride slowly"], correct:0, explain:"Ice dramatically reduces available grip — allow up to ten times your normal stopping distance, and avoid any harsh braking, acceleration or steering input."},
+  {cat:"Safety Margins", q:"What's a reliable way to check you're keeping a safe following distance in good, dry conditions?", options:["Pick a fixed point the vehicle ahead passes, then count \"one-thousand, two-thousand\" before you reach the same point","Stay close enough to read the number plate clearly at all times","Match your speed exactly to the vehicle in front regardless of gap","Use your mirrors only, since following distance is a rear-view issue"], correct:0, explain:"Counting at a steady \"one-thousand, two-thousand\" pace keeps roughly two seconds honest — if you reach the fixed point before finishing the count, you're following too closely."},
+  {cat:"Safety Margins", q:"Why is a motorcycle's real-world braking distance usually a little longer than a car's at the same speed?", options:["Because tyre contact area, weight transfer and rider input all behave differently under hard braking on two wheels","Because motorcycles are legally required to brake more gently","Because motorcycle brakes are mechanically weaker than car brakes","It isn't — motorcycles always stop in a shorter distance than cars"], correct:0, explain:"The physics of braking on two wheels, including weight transfer and the smaller tyre contact patch, generally make real-world motorcycle braking distances a little longer than a car's, even before road and rider conditions are factored in."},
+
+  {cat:"Hazard Awareness", q:"As you approach a side junction where a car is waiting to emerge, what should you do even if you appear to have priority?", options:["Cover your brakes and assume you haven't been seen","Speed up to pass the junction before the car can move","Flash your headlight and maintain your speed","Move fully into the opposite lane to create distance"], correct:0, explain:"A driver waiting to emerge is usually scanning for a gap in the traffic, not actively looking for a motorcycle — assuming you haven't been seen, and covering your brakes, costs nothing and could prevent a collision."},
+  {cat:"Hazard Awareness", q:"Why is overtaking a queue of stationary or slow-moving traffic considered a particular crash hotspot?", options:["A vehicle within the queue may pull out, turn, or do a U-turn without warning","It's illegal in all circumstances in the UK","Queued traffic always indicates a speed camera ahead","It only matters at night"], correct:0, explain:"Gaps beside a queue can hide a vehicle about to turn across your path — asking yourself why the queue has formed before committing is a useful habit."},
+  {cat:"Hazard Awareness", q:"What is the \"limit point\" when reading a bend?", options:["The furthest point on the road surface you can see, which tells you how sharp the bend is and whether it's safe to go faster","The point at which your motorcycle's top speed is reached","A fixed distance of 100 metres before every bend","The point where you must have completed all braking"], correct:0, explain:"If the limit point appears to be getting closer, the bend is tightening or something may be obscuring your view — in both cases, that's the moment to ease off rather than speed up."},
+  {cat:"Hazard Awareness", q:"Why should you never overtake at or near a junction, even if the road ahead looks clear?", options:["A vehicle that appears to be slowing for no obvious reason may be about to turn across your path","It's only dangerous for cars, not motorcycles","Junctions are always marked with a no-overtaking sign","It's only a risk in built-up areas"], correct:0, explain:"Even advanced and emergency-service riders avoid overtaking through a junction — it's one of the few pieces of advice worth following without exception."},
+  {cat:"Hazard Awareness", q:"What's the safest response if, partway through an overtake, an oncoming vehicle appears unexpectedly?", options:["Abandon the manoeuvre and pull back in behind the vehicle you were overtaking, if it's safe to do so","Accelerate harder to complete the overtake as quickly as possible","Brake hard in the opposite lane","Flash your headlight at the oncoming vehicle and continue"], correct:0, explain:"A committed overtake is safer than a hesitant one, but circumstances can still change — staying ready to abandon the manoeuvre and drop back in is part of keeping the sequence safe throughout."},
+
+  {cat:"Vulnerable Road Users", q:"At a zebra crossing, when must you stop?", options:["Whenever a pedestrian is waiting to cross or already crossing","Only if a police officer is present","Only during daylight hours","Only if there are zig-zag lines on both sides"], correct:0, explain:"Pedestrians have absolute priority at a zebra crossing once they're on it or clearly waiting to cross — you must stop and let them cross without waving them over or sounding your horn."},
+  {cat:"Vulnerable Road Users", q:"What distinguishes a \"puffin\" crossing from a \"pelican\" crossing?", options:["A puffin crossing uses sensors to detect pedestrians still on the crossing, so there's no flashing-amber phase","A puffin crossing is only for cyclists","A pelican crossing has no traffic lights at all","There is no real difference between the two"], correct:0, explain:"Puffin crossings (\"Pedestrian User-Friendly Intelligent crossing\") use on-crossing sensors instead of a fixed flashing-amber phase — treat them as a straightforward set of traffic lights."},
+  {cat:"Vulnerable Road Users", q:"Why should you give extra space when passing a horse and rider?", options:["Horses can be startled by noise or sudden movement, with potentially dangerous consequences for the rider","It's only a courtesy, not a safety requirement","Horses are legally classed the same as stationary obstacles","It only matters if the horse is on a motorway"], correct:0, explain:"A startled horse can behave unpredictably — passing slowly, giving plenty of room, and avoiding revving the engine nearby all reduce the risk of a dangerous reaction."},
+  {cat:"Vulnerable Road Users", q:"A \"toucan\" crossing allows which two types of user to cross together?", options:["Pedestrians and cyclists","Only wheelchair users","Horse riders and pedestrians","Buses and cyclists"], correct:0, explain:"\"Toucan\" (\"two can cross\") crossings are shared by pedestrians and cyclists, and are usually controlled in the same way as a puffin crossing."},
+  {cat:"Vulnerable Road Users", q:"Why is it particularly important to check carefully for cyclists before turning left at a junction?", options:["A cyclist may be riding straight on close to the kerb, in your blind spot or easily missed in a quick glance","Cyclists are legally required to always stop at every junction","It's only relevant if there's a cycle lane marked","Cyclists are not considered vulnerable road users under the Highway Code"], correct:0, explain:"A cyclist travelling straight on can easily be overlooked by a vehicle turning left across their path — a proper shoulder check, not just a mirror glance, is the only reliable way to be sure."},
+
+  {cat:"Vehicle Handling", q:"What actually makes a motorcycle lean into a turn at speed?", options:["A deliberate, physical steering input on the handlebars — \"counter-steering\"","Leaning your body weight alone, with no handlebar input","The front tyre's tread pattern","Reducing throttle to zero"], correct:0, explain:"Above walking pace, pushing the inside handlebar (push right to turn right, push left to turn left) is what actually steers and leans the bike — most riders do this instinctively without realising it."},
+  {cat:"Vehicle Handling", q:"When should braking ideally be completed when approaching a bend?", options:["Before you begin to lean the bike into the corner","Exactly at the apex of the bend","Only after the bike is already leaned over","Braking should be avoided entirely on bends"], correct:0, explain:"Braking mid-corner upsets the bike's balance and reduces the grip available for cornering — all braking should be completed before you commit to leaning in."},
+  {cat:"Vehicle Handling", q:"What's the recommended approximate front-to-rear brake balance for most situations?", options:["Around 70% front, 30% rear","100% front, 0% rear","100% rear, 0% front","Always exactly 50/50"], correct:0, explain:"The front brake does the majority of the work because weight transfers forward under braking, but using both brakes together, roughly in that proportion, gives the most controlled, confident stop."},
+  {cat:"Vehicle Handling", q:"What's the main cause of \"wobble\" or instability when riding at walking pace?", options:["Tension in the arms and shoulders transmitting into the handlebars","Using the rear brake at all","Looking too far ahead","Having too little weight on the bike"], correct:0, explain:"A light, relaxed upper body — the same anchoring principle used at speed — allows the bike to move slightly beneath you without that movement being transmitted into the bars, which is what keeps slow-speed control smooth."},
+  {cat:"Vehicle Handling", q:"Before filtering through queued or slow-moving traffic, what three questions should you ask yourself?", options:["Is it necessary, is it safe, is it legal","Is it faster, is it fun, is it legal","Is the bike warmed up, is the queue long, is it raining","Is anyone watching, is it quick, is it allowed here"], correct:0, explain:"Filtering exposes you to hazards you wouldn't meet riding in the flow of traffic, so it's worth consciously checking necessity, safety and legality each time, not just doing it out of habit."},
+
+  {cat:"Equipment", q:"What is the legal requirement for the helmet you wear as a rider or pillion passenger in the UK?", options:["It must meet the required safety standard and be correctly fastened","Any helmet is acceptable as long as it's worn","Helmets are only compulsory for riders under 21","Helmets are only compulsory on motorways"], correct:0, explain:"Both rider and pillion passenger must wear a helmet that meets the legal standard, correctly fastened, with the main lawful exception being turban-wearing Sikhs."},
+  {cat:"Equipment", q:"Before a longer or winter ride, which check is most often overlooked but genuinely important?", options:["Confirming the battery holds a full charge, not just that it starts the bike","Polishing the fuel tank","Checking the speedometer is exactly accurate","Confirming the bike is the correct colour for the season"], correct:0, explain:"A battery that starts the bike on the drive can still be marginal — checking it actually holds charge avoids being caught out somewhere less convenient."},
+  {cat:"Equipment", q:"What is the legal minimum tyre tread depth for a motorcycle over 50cc in the UK?", options:["1mm across three-quarters of the tread width, around the entire circumference","There is no legal minimum for motorcycle tyres","3mm, the same as a car","Tread depth is only checked at the annual MOT, not a legal requirement otherwise"], correct:0, explain:"1mm across at least three-quarters of the tyre's breadth, all the way round, is the legal minimum — many riders choose to replace tyres well before they reach that limit."},
+  {cat:"Equipment", q:"What must be true before you legally carry a pillion passenger?", options:["You must hold the correct full licence entitlement, and the bike must have a proper passenger seat and footrests","The passenger must be over 25 years old","Pillion passengers are never permitted on motorcycles","Only a learner rider may carry a pillion passenger"], correct:0, explain:"A rider on a provisional licence or CBT certificate alone must not carry a pillion passenger — full entitlement, a proper seat and footrests for the passenger are all required."},
+  {cat:"Equipment", q:"Why is high-visibility clothing recommended even in good daylight conditions?", options:["It adds contrast against whatever is behind you, making you easier to pick out at a glance","It's a legal requirement for all riders at all times","It has no real benefit in daylight, only after dark","It's only useful to other motorcyclists, not car or van drivers"], correct:0, explain:"A motorcycle presents a narrow visual profile, especially head-on — hi-vis clothing and a dipped headlight both help you stand out against a cluttered background, even in daylight."},
+
+  {cat:"Rules of the Road", q:"What does a solid white line on your side of the road's centre line mean?", options:["No overtaking — you must not cross it","Overtaking is always permitted","It indicates a cycle lane","It marks a pedestrian crossing point"], correct:0, explain:"A solid line on your side means no overtaking; a broken line on your side means you may overtake when the road ahead is clear."},
+  {cat:"Rules of the Road", q:"What should you do at a box junction (marked with yellow crosshatching) if the exit isn't clear?", options:["Do not enter the box, even if your own traffic light is green","Enter anyway, since a green light always takes priority","Enter but sound your horn continuously","Box junctions only apply to buses and taxis"], correct:0, explain:"Entering a box junction is only permitted if your exit is clear — the same discipline as not committing to an overtake you can't see all the way through."},
+  {cat:"Rules of the Road", q:"What should give-way triangles painted on the road surface before a junction tell you?", options:["Slow down and be ready to stop for traffic on the road you're joining","You have absolute priority over all other traffic","The national speed limit applies from that point","Parking is prohibited at that location"], correct:0, explain:"They're the road-marking equivalent of the inverted-triangle give-way sign — a visual cue, often seen before you can read the actual sign, to prepare to stop."},
+  {cat:"Rules of the Road", q:"On a single carriageway national speed limit road, what is the limit for a motorcycle (without a sidecar)?", options:["60 mph","70 mph","50 mph","40 mph"], correct:0, explain:"The national speed limit for motorcycles on a single carriageway is 60mph; it rises to 70mph on a dual carriageway or motorway."},
+  {cat:"Rules of the Road", q:"What must you do if signalled to stop by a school crossing patrol?", options:["Stop — their signal to stop must always be obeyed","Only stop if children are visibly present","Treat it as advisory, not mandatory","Only stop if a police officer is also present"], correct:0, explain:"A school crossing patrol's signal to stop carries legal force; their signal to move off does not carry the same authority as a police officer, so make sure it's genuinely meant for you before proceeding."},
+
+  {cat:"Signs", q:"What does a triangular sign with a red border generally indicate?", options:["A warning — something is coming up, such as a bend or a hazard","A mandatory instruction you must obey","Information only, with no action required","A sign that applies only to heavy goods vehicles"], correct:0, explain:"Triangle, red border = warning. It's telling you something specific is ahead, whether that's a bend, a junction, an animal crossing, or ice."},
+  {cat:"Signs", q:"What does a circular sign with a solid blue background and no red border indicate?", options:["A positive instruction that must be followed, such as \"ahead only\"","A warning sign","An informational sign with no action required","A sign that only applies at night"], correct:0, explain:"Solid blue circles give positive instructions, not just warnings or suggestions — \"ahead only\" or \"minimum speed\" means exactly that."},
+  {cat:"Signs", q:"What does a circular sign with a red border generally indicate?", options:["A prohibition or order that must be obeyed, such as no entry or a speed limit","A warning only, with no legal requirement to comply","A tourist attraction","A sign used only on private roads"], correct:0, explain:"Circle, red border = an order — usually a prohibition that carries legal force, unlike the softer \"heads up\" of a triangular warning sign."},
+  {cat:"Signs", q:"What does a blue rectangular sign typically indicate, compared with a green or white one?", options:["Motorway-related information","A warning of an upcoming hazard","A speed limit specific to caravans","A prohibition, the same as a red circle"], correct:0, explain:"Rectangular signs give information rather than instructions, and colour tells you the road type: blue for motorways, green for primary routes, white or black-bordered for local roads."},
+  {cat:"Signs", q:"Where can you find the complete, official and free list of UK road signs and markings?", options:["Published by DVSA as part of the Highway Code, at gov.uk","Only in a paid mobile app","It is not published publicly","Only in printed form from the DVLA"], correct:0, explain:"The full official list is freely published by DVSA at gov.uk/guidance/the-highway-code — worth bookmarking alongside any other revision material."},
+
+  {cat:"Documents & Incidents", q:"What must a learner rider complete before riding on the road with L-plates, in most cases?", options:["Compulsory Basic Training (CBT)","A full motorway driving course","An advanced riding assessment","Nothing — a provisional licence alone is sufficient"], correct:0, explain:"CBT is generally required before riding on the road as a learner, and the certificate it produces is valid for two years, during which the full test must be passed."},
+  {cat:"Documents & Incidents", q:"Can a rider on CBT alone (no full motorcycle licence) ride on a motorway?", options:["No — motorways are not permitted on a provisional motorcycle licence","Yes, provided they stay in the left-hand lane","Yes, but only during daylight hours","Yes, provided an instructor follows in a car"], correct:0, explain:"A provisional motorcycle licence holder must not ride on motorways — this restriction is lifted only once the full category test has been passed."},
+  {cat:"Documents & Incidents", q:"Under the LIONEL system for reporting an incident, what does the \"L\" stand for (used twice, at the start and end of the call)?", options:["Location","Liability","Licence","Lighting"], correct:0, explain:"LIONEL stands for Location, Incident, Other services, Number of casualties, Extent of injuries, Location (repeated to confirm) — giving the emergency services a clear, structured picture quickly."},
+  {cat:"Documents & Incidents", q:"If you're involved in a collision that injures another person, what must you do regarding the police?", options:["Report it to the police within 24 hours if you weren't able to give your details at the scene","You only need to report it if the other party insists","Reporting is entirely optional in the UK","You must report it within 7 days, not 24 hours"], correct:0, explain:"Under the Road Traffic Act, injury to anyone other than yourself requires you to provide your insurance details and, if not already done at the scene, report the incident to the police within 24 hours."},
+  {cat:"Documents & Incidents", q:"What should you store in your phone to help emergency services contact someone on your behalf?", options:["A contact labelled \"ICE\" (In Case of Emergency), with the relationship noted","Your insurance company's marketing number","A note of your own blood type only","The MOT centre's phone number"], correct:0, explain:"\"ICE\" is the label emergency services are trained to look for — ICE 1, ICE 2 and so on if you want to list more than one contact."}
+];
+
+let currentSet = [];
+let currentIndex = 0;
+let score = 0;
+let categoryStats = {};
+let answered = false;
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function startQuiz(n){
+  const pool = shuffle(QUESTION_BANK).slice(0, n);
+  currentSet = pool.map(q => {
+    const optOrder = shuffle(q.options.map((text,i) => ({text, orig:i})));
+    const newCorrect = optOrder.findIndex(o => o.orig === q.correct);
+    return {cat:q.cat, q:q.q, options:optOrder.map(o=>o.text), correct:newCorrect, explain:q.explain};
+  });
+  currentIndex = 0;
+  score = 0;
+  categoryStats = {};
+  document.getElementById('lengthPicker').style.display = 'none';
+  document.getElementById('quizResults').style.display = 'none';
+  document.getElementById('quizRunner').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered = false;
+  const item = currentSet[currentIndex];
+  document.getElementById('progressBar').style.width = (currentIndex / currentSet.length * 100) + '%';
+  document.getElementById('quizPosition').textContent = 'Question ' + (currentIndex+1) + ' of ' + currentSet.length;
+  document.getElementById('quizCategory').textContent = item.cat;
+  document.getElementById('quizQuestion').textContent = item.q;
+  const optsWrap = document.getElementById('quizOptions');
+  optsWrap.innerHTML = '';
+  item.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.type = 'button';
+    btn.textContent = opt;
+    btn.onclick = () => selectOption(i);
+    optsWrap.appendChild(btn);
+  });
+  document.getElementById('quizExplain').classList.remove('show');
+  document.getElementById('quizExplain').textContent = '';
+  document.getElementById('nextBtn').disabled = true;
+  document.getElementById('nextBtn').textContent = (currentIndex === currentSet.length - 1) ? 'See Results' : 'Next';
+}
+
+function selectOption(i){
+  if(answered) return;
+  answered = true;
+  const item = currentSet[currentIndex];
+  if(!categoryStats[item.cat]) categoryStats[item.cat] = {correct:0, total:0};
+  categoryStats[item.cat].total++;
+  const isCorrect = (i === item.correct);
+  if(isCorrect){ score++; categoryStats[item.cat].correct++; }
+  const buttons = document.querySelectorAll('.quiz-option');
+  buttons.forEach((btn, idx) => {
+    btn.disabled = true;
+    if(idx === item.correct) btn.classList.add('correct');
+    else if(idx === i) btn.classList.add('incorrect');
+  });
+  const explainEl = document.getElementById('quizExplain');
+  explainEl.textContent = (isCorrect ? 'Correct. ' : 'Not quite. ') + item.explain;
+  explainEl.classList.add('show');
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion(){
+  currentIndex++;
+  if(currentIndex >= currentSet.length){
+    showResults();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResults(){
+  document.getElementById('quizRunner').style.display = 'none';
+  document.getElementById('quizResults').style.display = 'block';
+  document.getElementById('resultsScore').textContent = score + '/' + currentSet.length;
+  const pct = Math.round(score / currentSet.length * 100);
+  document.getElementById('resultsPct').textContent = pct + '% correct';
+  const breakdown = document.getElementById('resultsBreakdown');
+  breakdown.innerHTML = '';
+  Object.keys(categoryStats).sort().forEach(cat => {
+    const s = categoryStats[cat];
+    const row = document.createElement('div');
+    row.className = 'breakdown-row';
+    const catPct = Math.round(s.correct / s.total * 100);
+    row.innerHTML = '<span>' + cat + '</span><span class="bar-track"><span class="bar-fill" style="width:' + catPct + '%;"></span></span><span>' + s.correct + '/' + s.total + '</span>';
+    breakdown.appendChild(row);
+  });
+}
+
+function resetToPicker(){
+  document.getElementById('quizResults').style.display = 'none';
+  document.getElementById('quizRunner').style.display = 'none';
+  document.getElementById('lengthPicker').style.display = 'block';
+}
+
+function toggleHazard(btn){
+  const answer = btn.nextElementSibling;
+  const showing = answer.classList.contains('show');
+  answer.classList.toggle('show');
+  btn.textContent = showing ? 'Reveal answer' : 'Hide answer';
+}
+</script>
+
+</body>
+</html>

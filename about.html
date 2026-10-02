@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Elite Bikers | Darren Hunt, Meriden &amp; Coventry</title>
+<meta name="description" content="Meet Darren Hunt of Elite Bikers — F1RST pass, IAM RoadSmart member, qualified DVSA Enhanced Rider Instructor and Blood Biker Instructor. Our partners and associations.">
+<link rel="canonical" href="https://www.elitebikers.co.uk/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elite Bikers">
+<meta property="og:title" content="About Elite Bikers | Darren Hunt">
+<meta property="og:description" content="Meet Darren Hunt of Elite Bikers — F1RST pass, IAM RoadSmart member, qualified DVSA Enhanced Rider Instructor and Blood Biker Instructor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e12;
+    --panel:#12161c;
+    --navy:#0a3a5c;
+    --navy-deep:#062540;
+    --ink:#f4f1ea;
+    --muted:#b9c0c9;
+    --gold:#c99a4b;
+    --gold-light:#e3bd77;
+    --line:rgba(244,241,234,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.78rem;
+    color:var(--gold-light);
+    font-weight:600;
+    margin:0 0 14px;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    letter-spacing:.02em;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(201,154,75,.28);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-small{padding:10px 20px;font-size:.85rem;}
+
+  /* NAV */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,14,18,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand img{height:34px;width:auto;}
+  .navlinks{display:none;gap:24px;font-size:.92rem;font-weight:600;}
+  .navlinks a{text-decoration:none;color:var(--muted);transition:color .15s;}
+  .navlinks a:hover{color:var(--gold-light);}
+  .navlinks a.active{color:var(--gold-light);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){
+    .navlinks{display:flex;}
+    .nav-cta{display:inline-block;}
+  }
+
+  /* PAGE HEADER */
+  .pagehead{
+    padding:56px 0 48px;
+    background:
+      radial-gradient(ellipse at 70% 0%, rgba(10,58,92,.5), transparent 60%),
+      linear-gradient(180deg, #0b0e12, #090b0f 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .pagehead h1{font-size:clamp(2rem,4.5vw,2.9rem);margin:0 0 14px;}
+  .pagehead p{color:var(--muted);max-width:60ch;font-size:1.05rem;margin:0;}
+
+  /* SECTION */
+  section{padding:70px 0;}
+  section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-head{max-width:680px;margin:0 0 42px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 14px;}
+  .section-head p{color:var(--muted);margin:0;font-size:1.02rem;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* ABOUT */
+  .about-grid{display:grid;gap:48px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:860px){.about-grid{grid-template-columns:.85fr 1.15fr;}}
+  .about-grid img{border-radius:var(--radius);border:1px solid var(--line);}
+  .about-text p{color:var(--muted);font-size:1.05rem;}
+  .about-text p:first-of-type{color:var(--ink);font-size:1.12rem;}
+
+  /* CREDENTIALS */
+  .cred-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .cred-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--navy-deep);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;color:var(--gold-light);font-weight:600;font-size:.95rem;
+  }
+  .cred-list li::before{content:"\2713";flex-shrink:0;color:var(--gold-light);font-weight:800;}
+
+  .cert-proof{
+    display:flex;gap:16px;align-items:center;margin-top:20px;
+    background:var(--navy-deep);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+  }
+  .cert-proof img{
+    width:92px;height:auto;border-radius:6px;border:1px solid var(--line);flex-shrink:0;
+  }
+  .cert-proof p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.45;}
+  .cert-proof a{color:var(--gold-light);font-weight:600;}
+
+  /* PARTNERS */
+  .partner-row{
+    display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:center;
+  }
+  .partner-badge{
+    background:#fff;border-radius:10px;padding:14px 20px;
+    display:flex;align-items:center;justify-content:center;
+    min-height:70px;min-width:160px;
+  }
+  .partner-badge img{max-height:46px;width:auto;}
+  .partner-badge.text{
+    background:var(--bg);border:1px dashed var(--line);color:var(--muted);
+    font-weight:700;letter-spacing:.02em;text-align:center;font-size:.92rem;
+  }
+
+  /* GALLERY */
+  .gallery-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);}
+  @media(min-width:760px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
+  .gallery-item{
+    aspect-ratio:1/1;border-radius:10px;border:1px solid var(--line);
+    background:linear-gradient(160deg,#1a1f27,#0c0f13);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:.78rem;text-align:center;padding:10px;
+  }
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+    border-radius:var(--radius);border:1px solid var(--line);
+    padding:40px 34px;text-align:center;
+  }
+  .cta-band h2{margin:0 0 14px;}
+  .cta-band p{color:var(--muted);max-width:52ch;margin:0 auto 26px;}
+
+  /* FOOTER */
+  footer{padding:46px 0 36px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  .footer-links{display:flex;gap:22px;font-size:.88rem;color:var(--muted);flex-wrap:wrap;}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .copyright{font-size:.82rem;color:var(--muted);opacity:.8;}
+
+  .anchor-offset{scroll-margin-top:80px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a class="brand" href="index.html#top">
+      <img src="images/elitebikers-logo-navy.png" alt="Elite Bikers logo">
+    </a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html" class="active">About</a>
+      <a href="theory.html">Theory Test</a>
+    </div>
+    <a class="btn btn-gold btn-small nav-cta" href="index.html#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="pagehead">
+    <div class="wrap">
+      <p class="eyebrow">About Elite Bikers</p>
+      <h1 class="serif">Our Story</h1>
+      <p>Who Darren is, what Elite Bikers stands for, and the partners who help us cover the full range of DVSA Enhanced Rider Scheme training.</p>
+    </div>
+  </section>
+
+  <section id="about" class="anchor-offset">
+    <div class="wrap about-grid">
+      <img src="images/booklet-cover.jpg" alt="Rider cornering on track">
+      <div class="about-text">
+        <p>Elite Bikers was founded in 2024 by Darren Hunt to promote Advanced and Enhanced Rider Training.</p>
+        <p>Today, our safety on the roads is paramount with the volume of traffic that has to be contended with. Suffice, if we all can just learn one or two things in gradual increments and pass this on, then we shall assist in the reduction of motorcycle accidents and what's more, have fun and enjoy the ride.</p>
+        <ul class="cred-list">
+          <li>F1RST pass and full membership of the Institute of Advanced Motorists (IAM RoadSmart) — the highest standard of advanced rider assessment</li>
+          <li>Qualified DVSA Enhanced Rider Instructor</li>
+          <li>Qualified Blood Biker Instructor</li>
+        </ul>
+        <div class="cert-proof">
+          <a href="images/dvsa-ers-certificate.jpg" target="_blank" rel="noopener">
+            <img src="images/dvsa-ers-certificate.jpg" alt="Darren Hunt's DVSA Enhanced Riding Instructor certificate, FAST-TRAK Essential Driver Training, 5th October 2024">
+          </a>
+          <p>Darren's DVSA Enhanced Riding Instructor certificate (plus Blood Bike training), issued by FAST&#8209;TRAK Essential Driver Training. <a href="images/dvsa-ers-certificate.jpg" target="_blank" rel="noopener">View full size</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" class="alt anchor-offset">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Our Partners, Associations &amp; Institutes</p>
+        <h2 class="serif">Trusted training, backed by trusted names</h2>
+      </div>
+      <div class="partner-row">
+        <div class="partner-badge"><img src="images/dvsa-ers-logo.png" alt="DVSA Enhanced Rider Scheme"></div>
+        <div class="partner-badge text">FAST&#8209;TRAK<br>Essential Driver Training</div>
+        <div class="partner-badge text">Coventry &amp; Warwickshire<br>Advanced Motorcyclists</div>
+        <div class="partner-badge text">IAM RoadSmart</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="anchor-offset">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Riding to Freedom</p>
+        <h2 class="serif">Elite Bikers' motorcycle gallery</h2>
+        <p>Photos from training days and tours are on their way — get in touch if you'd like yours featured here.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">Photo coming soon</div>
+        <div class="gallery-item">Photo coming soon</div>
+        <div class="gallery-item">Photo coming soon</div>
+        <div class="gallery-item">Photo coming soon</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="cta-band">
+        <p class="eyebrow">Like what you've read?</p>
+        <h2 class="serif">Get in touch, or see what's on offer</h2>
+        <p>Have a chat with Darren about which course fits where you are in your riding, or go straight to courses and prices.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a class="btn btn-gold" href="index.html#contact">Get in touch</a>
+          <a class="btn btn-outline" href="courses.html">View courses &amp; prices</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="copyright">&copy; 2026 Elite Bikers &mdash; All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html#top">Home</a>
+      <a href="courses.html">Courses &amp; Pricing</a>
+      <a href="safety.html">Safety</a>
+      <a href="about.html">About</a>
+      <a href="theory.html">Theory Test</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
