@@ -236,7 +236,7 @@
           <div class="course-meta"><span>4 hrs</span></div>
           <p>A minimum of four hours to assess the DVSA competencies as per the Enhanced Rider Scheme, with full feedback throughout.</p>
           <div class="course-price">&pound;185</div>
-          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Enhanced Rider Scheme">Enquire</a>
+          <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Enquiry: Enhanced Rider Scheme" onclick="return false;">Enquire</a>
         </div>
 
         <div class="course-card">
@@ -244,7 +244,7 @@
           <div class="course-meta"><span>5 hrs</span></div>
           <p>Apart from going through the ERS competencies, this course allows you to prepare for the additional standards expected of Blood Bike riders.</p>
           <div class="course-price">&pound;225</div>
-          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Blood Biker Training">Enquire</a>
+          <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Enquiry: Blood Biker Training" onclick="return false;">Enquire</a>
         </div>
 
         <div class="course-card">
@@ -252,7 +252,7 @@
           <div class="course-meta"><span>2 hrs</span></div>
           <p>Full feedback given and a report issued for your records. We spend time briefing you on what advanced riding involves before we start.</p>
           <div class="course-price">&pound;75</div>
-          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Advanced Riding Assessment">Enquire</a>
+          <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Enquiry: Advanced Riding Assessment" onclick="return false;">Enquire</a>
         </div>
 
         <div class="course-card">
@@ -260,7 +260,7 @@
           <div class="course-meta"><span>3 hrs</span></div>
           <p>A refresher day to bring back the confidence you know you have. Ideal if you're returning to riding or still new to it.</p>
           <div class="course-price">&pound;150</div>
-          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Refresher Day">Enquire</a>
+          <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Enquiry: Refresher Day" onclick="return false;">Enquire</a>
         </div>
 
         <div class="course-card">
@@ -268,7 +268,7 @@
           <div class="course-meta"><span>3 hrs</span></div>
           <p>A morning spent developing slow riding skills — ideal for those intending to take on filtering, car parks, or tight manoeuvring with confidence.</p>
           <div class="course-price">&pound;65</div>
-          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Slow Riding Refresher Morning">Enquire</a>
+          <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Enquiry: Slow Riding Refresher Morning" onclick="return false;">Enquire</a>
         </div>
 
         <div class="course-card">
@@ -276,7 +276,7 @@
           <div class="course-meta"><span>8 hrs</span></div>
           <p>A good day's riding incorporating the ERS, with lunch included. Routes to be confirmed.</p>
           <div class="course-price">&pound;325</div>
-          <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Enquiry: Tours Around Wales">Enquire</a>
+          <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Enquiry: Tours Around Wales" onclick="return false;">Enquire</a>
         </div>
 
       </div>
@@ -304,13 +304,13 @@
               <h3>Digital PDF</h3>
               <div class="course-price">&pound;6.99</div>
               <p>Instant download — read on your phone, tablet or printed out at home.</p>
-              <a class="btn btn-gold btn-small" href="mailto:darren@elitebikers.co.uk?subject=Order: Elite Bikers Handbook (Digital PDF)">Order the PDF</a>
+              <a class="btn btn-gold btn-small tawk-open-chat" href="#" data-msg="Order: Elite Bikers Handbook (Digital PDF)" onclick="return false;">Order the PDF</a>
             </div>
             <div class="book-option">
               <h3>Printed copy</h3>
               <div class="course-price">&pound;19.99 <small>inc. UK postage</small></div>
               <p>Pocket-sized (A6), printed and posted straight to your door.</p>
-              <a class="btn btn-outline btn-small" href="mailto:darren@elitebikers.co.uk?subject=Order: Elite Bikers Handbook (Printed copy)">Order a printed copy</a>
+              <a class="btn btn-outline btn-small tawk-open-chat" href="#" data-msg="Order: Elite Bikers Handbook (Printed copy)" onclick="return false;">Order a printed copy</a>
             </div>
           </div>
           <p class="book-note">Online card payment is coming soon — for now, drop us an email with your order and we'll take it from there.</p>
@@ -342,10 +342,35 @@
       <a href="about.html">About</a>
       <a href="theory.html">Theory Test</a>
       <a href="index.html#contact">Contact</a>
-      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/share/1Jr1CLeRB4/" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 </footer>
+
+
+<!-- Tawk.to Live Chat — replace PROPERTY_ID / WIDGET_ID below with your own
+     from tawk.to: Administration -> Channels -> Chat Widget -> install code -->
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+(function(){
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/REPLACE_WITH_PROPERTY_ID/REPLACE_WITH_WIDGET_ID';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest ? e.target.closest('.tawk-open-chat') : null;
+  if (!el) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+    Tawk_API.maximize();
+  }
+});
+</script>
+<!-- End Tawk.to Live Chat -->
 
 </body>
 </html>

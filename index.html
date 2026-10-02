@@ -119,6 +119,8 @@
   .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
   .hero-meta{display:flex;flex-wrap:wrap;gap:22px;font-size:.88rem;color:var(--muted);}
   .hero-meta span{display:flex;align-items:center;gap:8px;}
+  .hero-meta a,.tawk-open-chat{color:var(--gold-light);text-decoration:none;font-weight:600;cursor:pointer;}
+  .hero-meta a:hover,.tawk-open-chat:hover{text-decoration:underline;}
   .hero-art{
     position:relative;border-radius:var(--radius);overflow:hidden;
     border:1px solid var(--line);
@@ -212,7 +214,7 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Meriden &middot; Coventry &middot; CV7 7HT</p>
+        <p class="eyebrow">Meriden &middot; Coventry &middot; CV7</p>
         <h1>Advanced &amp; <em>Enhanced</em><br>Rider Training</h1>
         <p class="lead">Elite Bikers was founded by Darren Hunt to promote advanced and enhanced rider training — helping you ride with more skill, more confidence, and a little less risk, whatever you ride.</p>
         <div class="hero-ctas">
@@ -220,7 +222,7 @@
           <a class="btn btn-outline" href="courses.html">View courses &amp; prices</a>
         </div>
         <div class="hero-meta">
-          <span>&#9993; darren@elitebikers.co.uk</span>
+          <span>&#128172; <a href="#" class="tawk-open-chat">Message us</a></span>
           <span>&#128222; 07727 114483</span>
           <span>&#128337; Open today 09:00&ndash;17:00</span>
         </div>
@@ -293,9 +295,10 @@
       <div>
         <p class="eyebrow">Better yet, see us in person!</p>
         <h2 class="serif">We prefer to see you</h2>
-        <p style="color:var(--muted);max-width:46ch;">Feel free to arrange a meeting with us, or drop us a call, WhatsApp or email and we'll get back to you.</p>
+        <p style="color:var(--muted);max-width:46ch;">Feel free to arrange a meeting with us, or drop us a call, WhatsApp or message and we'll get back to you.</p>
         <div class="hero-ctas" style="margin-top:24px;">
-          <a class="btn btn-gold" href="https://wa.me/447727114483" target="_blank" rel="noopener">WhatsApp us</a>
+          <a class="btn btn-gold tawk-open-chat" href="#" onclick="return false;">Message us</a>
+          <a class="btn btn-outline" href="https://wa.me/447727114483" target="_blank" rel="noopener">WhatsApp us</a>
           <a class="btn btn-outline" href="tel:07727114483">Call now</a>
         </div>
       </div>
@@ -303,9 +306,9 @@
         <h3 class="serif" style="margin:0 0 4px;">Elite Bikers</h3>
         <p style="color:var(--muted);margin:0;">Darren Hunt</p>
         <ul class="contact-list">
-          <li><div><strong>Address</strong>Kinwalsey Lane, Meriden, Coventry, CV7 7HT</div></li>
+          <li><div><strong>Address</strong>Kinwalsey Lane, Meriden, Coventry, CV7</div></li>
           <li><div><strong>Phone</strong>07727 114483</div></li>
-          <li><div><strong>Email</strong>darren@elitebikers.co.uk</div></li>
+          <li><div><strong>Message</strong><a href="#" class="tawk-open-chat" onclick="return false;">Chat with us online</a></div></li>
           <li><div><strong>Hours</strong>Open today 09:00&ndash;17:00</div></li>
         </ul>
       </div>
@@ -324,10 +327,35 @@
       <a href="about.html">About</a>
       <a href="theory.html">Theory Test</a>
       <a href="index.html#contact">Contact</a>
-      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/share/1Jr1CLeRB4/" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 </footer>
+
+
+<!-- Tawk.to Live Chat — replace PROPERTY_ID / WIDGET_ID below with your own
+     from tawk.to: Administration -> Channels -> Chat Widget -> install code -->
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+(function(){
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/REPLACE_WITH_PROPERTY_ID/REPLACE_WITH_WIDGET_ID';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest ? e.target.closest('.tawk-open-chat') : null;
+  if (!el) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+    Tawk_API.maximize();
+  }
+});
+</script>
+<!-- End Tawk.to Live Chat -->
 
 </body>
 </html>

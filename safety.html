@@ -509,10 +509,35 @@
       <a href="about.html">About</a>
       <a href="theory.html">Theory Test</a>
       <a href="index.html#contact">Contact</a>
-      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/share/1Jr1CLeRB4/" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 </footer>
+
+
+<!-- Tawk.to Live Chat — replace PROPERTY_ID / WIDGET_ID below with your own
+     from tawk.to: Administration -> Channels -> Chat Widget -> install code -->
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+(function(){
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/REPLACE_WITH_PROPERTY_ID/REPLACE_WITH_WIDGET_ID';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest ? e.target.closest('.tawk-open-chat') : null;
+  if (!el) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+    Tawk_API.maximize();
+  }
+});
+</script>
+<!-- End Tawk.to Live Chat -->
 
 </body>
 </html>

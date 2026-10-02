@@ -125,15 +125,21 @@
   }
   .cred-list li::before{content:"\2713";flex-shrink:0;color:var(--gold-light);font-weight:800;}
 
-  .cert-proof{
-    display:flex;gap:16px;align-items:center;margin-top:20px;
-    background:var(--navy-deep);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+  .cert-gallery{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;}
+  .cert-item{
+    background:var(--navy-deep);border:1px solid var(--line);border-radius:10px;
+    padding:10px;width:150px;text-align:center;cursor:zoom-in;
   }
-  .cert-proof img{
-    width:92px;height:auto;border-radius:6px;border:1px solid var(--line);flex-shrink:0;
+  .cert-item img{width:100%;height:auto;border-radius:6px;border:1px solid var(--line);display:block;}
+  .cert-item span{display:block;margin-top:8px;font-size:.76rem;color:var(--muted);line-height:1.35;}
+
+  .lightbox-overlay{
+    display:none;position:fixed;inset:0;background:rgba(8,12,20,.9);
+    z-index:999;align-items:center;justify-content:center;padding:28px;cursor:zoom-out;
   }
-  .cert-proof p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.45;}
-  .cert-proof a{color:var(--gold-light);font-weight:600;}
+  .lightbox-overlay.open{display:flex;}
+  .lightbox-overlay img{max-width:min(88vw,720px);max-height:85vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lightbox-close{position:absolute;top:18px;right:26px;color:#fff;font-size:2rem;line-height:1;cursor:pointer;}
 
   /* PARTNERS */
   .partner-row{
@@ -215,15 +221,15 @@
         <p>Elite Bikers was founded in 2024 by Darren Hunt to promote Advanced and Enhanced Rider Training.</p>
         <p>Today, our safety on the roads is paramount with the volume of traffic that has to be contended with. Suffice, if we all can just learn one or two things in gradual increments and pass this on, then we shall assist in the reduction of motorcycle accidents and what's more, have fun and enjoy the ride.</p>
         <ul class="cred-list">
-          <li>F1RST pass and full membership of the Institute of Advanced Motorists (IAM RoadSmart) — the highest standard of advanced rider assessment</li>
+          <li>F1RST pass and full membership of the Institute of Advanced Motorists (IAM RoadSmart) — currently working towards the Masters Assessment</li>
           <li>Qualified DVSA Enhanced Rider Instructor</li>
           <li>Qualified Blood Biker Instructor</li>
         </ul>
-        <div class="cert-proof">
-          <a href="images/dvsa-ers-certificate.jpg" target="_blank" rel="noopener">
+        <div class="cert-gallery">
+          <div class="cert-item" onclick="openLightbox('images/dvsa-ers-certificate.jpg')">
             <img src="images/dvsa-ers-certificate.jpg" alt="Darren Hunt's DVSA Enhanced Riding Instructor certificate, FAST-TRAK Essential Driver Training, 5th October 2024">
-          </a>
-          <p>Darren's DVSA Enhanced Riding Instructor certificate (plus Blood Bike training), issued by FAST&#8209;TRAK Essential Driver Training. <a href="images/dvsa-ers-certificate.jpg" target="_blank" rel="noopener">View full size</a>.</p>
+            <span>DVSA Enhanced Riding Instructor<br>(plus Blood Bike training)</span>
+          </div>
         </div>
       </div>
     </div>
@@ -286,10 +292,48 @@
       <a href="about.html">About</a>
       <a href="theory.html">Theory Test</a>
       <a href="index.html#contact">Contact</a>
-      <a href="https://www.facebook.com/elitebikersteam/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/share/1Jr1CLeRB4/" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 </footer>
+
+<div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightboxImg" src="" alt="">
+</div>
+<script>
+function openLightbox(src){
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxOverlay').classList.add('open');
+}
+function closeLightbox(){
+  document.getElementById('lightboxOverlay').classList.remove('open');
+}
+</script>
+
+<!-- Tawk.to Live Chat — replace PROPERTY_ID / WIDGET_ID below with your own
+     from tawk.to: Administration -> Channels -> Chat Widget -> install code -->
+<script type="text/javascript">
+var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+(function(){
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/REPLACE_WITH_PROPERTY_ID/REPLACE_WITH_WIDGET_ID';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest ? e.target.closest('.tawk-open-chat') : null;
+  if (!el) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
+    Tawk_API.maximize();
+  }
+});
+</script>
+<!-- End Tawk.to Live Chat -->
 
 </body>
 </html>
