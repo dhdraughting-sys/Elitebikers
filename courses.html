@@ -181,6 +181,20 @@
   .copyright{font-size:.82rem;color:var(--muted);opacity:.8;}
 
   .anchor-offset{scroll-margin-top:80px;}
+
+  /* Cookie banner */
+  #cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:300;background:var(--navy-deep);color:var(--ink);padding:16px 20px;border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.35);}
+  #cookie-banner .cookie-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;justify-content:space-between;}
+  #cookie-banner p{margin:0;font-size:.9rem;line-height:1.5;color:var(--ink);flex:1 1 320px;}
+  #cookie-banner a{color:var(--gold-light);}
+  #cookie-banner .cookie-actions{display:flex;gap:10px;flex-shrink:0;}
+  #cookie-banner .btn-cookie{padding:10px 20px;border-radius:999px;font-weight:700;font-size:.85rem;border:1px solid transparent;cursor:pointer;}
+  #cookie-accept{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1a1203;}
+  #cookie-reject{background:transparent;color:var(--ink);border-color:var(--line);}
+  @media (max-width:640px){
+    #cookie-banner .cookie-inner{flex-direction:column;align-items:stretch;}
+    #cookie-banner .cookie-actions{justify-content:flex-end;}
+  }
 </style>
 </head>
 <body>
@@ -342,24 +356,29 @@
       <a href="about.html">About</a>
       <a href="theory.html">Theory Test</a>
       <a href="index.html#contact">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="#" id="cookie-settings-link">Cookie Settings</a>
       <a href="https://www.facebook.com/share/1Jr1CLeRB4/" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 </footer>
 
 
-<!-- Tawk.to Live Chat — replace PROPERTY_ID / WIDGET_ID below with your own
-     from tawk.to: Administration -> Channels -> Chat Widget -> install code -->
+<!-- Tawk.to Live Chat — only loaded after cookie consent, see cookie banner below -->
 <script type="text/javascript">
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function(){
+function ebLoadTawk(){
+  if (window.__ebTawkLoaded) return;
+  window.__ebTawkLoaded = true;
+  var Tawk_API = window.Tawk_API || {}, Tawk_LoadStart = new Date();
+  window.Tawk_API = Tawk_API;
+  window.Tawk_LoadStart = Tawk_LoadStart;
   var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
   s1.async = true;
   s1.src = 'https://embed.tawk.to/6abf7ddade4649344756b2ad/default';
   s1.charset = 'UTF-8';
   s1.setAttribute('crossorigin', '*');
   s0.parentNode.insertBefore(s1, s0);
-})();
+}
 
 document.addEventListener('click', function (e) {
   var el = e.target.closest ? e.target.closest('.tawk-open-chat') : null;
@@ -367,10 +386,53 @@ document.addEventListener('click', function (e) {
   e.preventDefault();
   if (window.Tawk_API && typeof Tawk_API.maximize === 'function') {
     Tawk_API.maximize();
+  } else {
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.hidden = false;
   }
 });
 </script>
 <!-- End Tawk.to Live Chat -->
 
+
+<div id="cookie-banner" hidden role="dialog" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p>We use essential cookies to run this site. If you accept, we'll also load our live chat widget (Tawk.to), which sets its own cookie &mdash; see our <a href="privacy.html">Privacy Policy</a> for details. We won't load it unless you say yes.</p>
+    <div class="cookie-actions">
+      <button type="button" id="cookie-accept" class="btn-cookie">Accept</button>
+      <button type="button" id="cookie-reject" class="btn-cookie">Reject</button>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var acceptBtn = document.getElementById('cookie-accept');
+  var rejectBtn = document.getElementById('cookie-reject');
+  var settingsLink = document.getElementById('cookie-settings-link');
+  var consent = null;
+  try { consent = localStorage.getItem('ebCookieConsent'); } catch (e) {}
+
+  if (consent === 'accepted') {
+    ebLoadTawk();
+  } else if (consent !== 'rejected' && banner) {
+    banner.hidden = false;
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener('click', function(){
+    try { localStorage.setItem('ebCookieConsent', 'accepted'); } catch (e) {}
+    if (banner) banner.hidden = true;
+    ebLoadTawk();
+  });
+  if (rejectBtn) rejectBtn.addEventListener('click', function(){
+    try { localStorage.setItem('ebCookieConsent', 'rejected'); } catch (e) {}
+    if (banner) banner.hidden = true;
+  });
+  if (settingsLink) settingsLink.addEventListener('click', function(e){
+    e.preventDefault();
+    if (banner) banner.hidden = false;
+  });
+})();
+</script>
 </body>
 </html>
